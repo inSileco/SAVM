@@ -37,7 +37,7 @@ of the output data (see \code{\link[sf:st_crs]{sf::st_crs()}}). Default is 32617
 \item{export}{{\code{character}}\cr{}
 Optional. Folder path to export outputs as .gpkg.}
 
-\item{...}{Further arguments passed on to \code{\link[utils:read.table]{utils::read.csv()}}.}
+\item{...}{Further arguments passed on to \code{\link[utils:read.csv]{utils::read.csv()}}.}
 }
 \value{
 A list with \code{points} (sf object) and \code{polygon} (sf object).

@@ -23,7 +23,10 @@ mod_results_viz_ui <- function(id) {
               style = "text-align: center; padding: 50px;",
               icon("exclamation-triangle", "fa-3x", style = "color: #f39c12;"),
               h4("No Model Results Found", style = "color: #f39c12;"),
-              p("Please complete the previous steps to generate results for visualization:", style = "color: #7f8c8d;"),
+              p(
+                "Please complete the previous steps to generate results for visualization:",
+                style = "color: #7f8c8d;"
+              ),
               tags$ul(
                 style = "color: #7f8c8d; text-align: left; display: inline-block;",
                 tags$li("1. Upload your data"),
@@ -156,16 +159,25 @@ mod_results_viz_ui <- function(id) {
                     solidHeader = TRUE,
                     width = NULL,
                     conditionalPanel(
-                      condition = sprintf("output['%s'] == false", ns("dist_plot_available")),
+                      condition = sprintf(
+                        "output['%s'] == false",
+                        ns("dist_plot_available")
+                      ),
                       div(
                         style = "text-align: center; padding: 50px;",
                         icon("bar-chart", "fa-3x", style = "color: #ccc;"),
                         h4("Configure Parameters", style = "color: #ccc;"),
-                        p("Select parameters and click 'Update Plot' to generate distribution plots", style = "color: #999;")
+                        p(
+                          "Select parameters and click 'Update Plot' to generate distribution plots",
+                          style = "color: #999;"
+                        )
                       )
                     ),
                     conditionalPanel(
-                      condition = sprintf("output['%s'] == true", ns("dist_plot_available")),
+                      condition = sprintf(
+                        "output['%s'] == true",
+                        ns("dist_plot_available")
+                      ),
                       plotOutput(ns("distribution_plot"), height = "600px")
                     )
                   )
@@ -231,16 +243,25 @@ mod_results_viz_ui <- function(id) {
                     solidHeader = TRUE,
                     width = NULL,
                     conditionalPanel(
-                      condition = sprintf("output['%s'] == false", ns("density_plot_available")),
+                      condition = sprintf(
+                        "output['%s'] == false",
+                        ns("density_plot_available")
+                      ),
                       div(
                         style = "text-align: center; padding: 50px;",
                         icon("area-chart", "fa-3x", style = "color: #ccc;"),
                         h4("Configure Parameters", style = "color: #ccc;"),
-                        p("Select parameters and click 'Update Plot' to generate density plots", style = "color: #999;")
+                        p(
+                          "Select parameters and click 'Update Plot' to generate density plots",
+                          style = "color: #999;"
+                        )
                       )
                     ),
                     conditionalPanel(
-                      condition = sprintf("output['%s'] == true", ns("density_plot_available")),
+                      condition = sprintf(
+                        "output['%s'] == true",
+                        ns("density_plot_available")
+                      ),
                       plotOutput(ns("density_plot"), height = "600px")
                     )
                   )
@@ -271,7 +292,8 @@ mod_results_viz_ui <- function(id) {
                           width = "300px"
                         )
                       ),
-                      column(3,
+                      column(
+                        3,
                         style = "margin-top: 25px;",
                         downloadButton(
                           ns("download_spatial_2"),
@@ -280,7 +302,8 @@ mod_results_viz_ui <- function(id) {
                           icon = icon("map")
                         )
                       ),
-                      column(3,
+                      column(
+                        3,
                         style = "margin-top: 25px;",
                         downloadButton(
                           ns("download_shapefile_2"),
@@ -459,17 +482,23 @@ mod_results_viz_server <- function(id, app_data) {
 
       # Update distribution predictors
       dist_choices <- list()
-      if ("depth_m" %in% available_cols_model) dist_choices[["Depth"]] <- "depth"
-      if ("fetch_km" %in% available_cols_model) dist_choices[["Fetch"]] <- "fetch"
+      if ("depth_m" %in% available_cols_model) {
+        dist_choices[["Depth"]] <- "depth"
+      }
+      if ("fetch_km" %in% available_cols_model) {
+        dist_choices[["Fetch"]] <- "fetch"
+      }
 
       updateCheckboxGroupInput(
-        session, "dist_predictors",
+        session,
+        "dist_predictors",
         choices = dist_choices,
         selected = unname(dist_choices)
       )
 
       updateCheckboxGroupInput(
-        session, "density_predictors",
+        session,
+        "density_predictors",
         choices = dist_choices,
         selected = unname(dist_choices)
       )
@@ -496,19 +525,25 @@ mod_results_viz_server <- function(id, app_data) {
       }
 
       updateSelectInput(
-        session, "map_layer",
+        session,
+        "map_layer",
         choices = map_choices,
         selected = if (length(map_choices) > 0) map_choices[[1]] else NULL
       )
 
       # Update table columns
-      display_cols <- if (inherits(data_viz, "sf")) names(sf::st_drop_geometry(data_viz)) else available_cols_viz
+      display_cols <- if (inherits(data_viz, "sf")) {
+        names(sf::st_drop_geometry(data_viz))
+      } else {
+        available_cols_viz
+      }
       display_cols <- setdiff(display_cols, "geometry")
       table_choices <- stats::setNames(display_cols, display_cols)
       default_selection <- display_cols[1:min(10, length(display_cols))]
 
       updateCheckboxGroupInput(
-        session, "table_columns",
+        session,
+        "table_columns",
         choices = table_choices,
         selected = default_selection
       )
@@ -516,7 +551,8 @@ mod_results_viz_server <- function(id, app_data) {
       shinyWidgets::updatePrettySwitch(
         session,
         "table_select_all",
-        value = length(default_selection) == length(display_cols) && length(display_cols) > 0
+        value = length(default_selection) == length(display_cols) &&
+          length(display_cols) > 0
       )
     })
 
@@ -524,7 +560,11 @@ mod_results_viz_server <- function(id, app_data) {
       req(viz_data())
 
       data_viz <- viz_data()
-      display_cols <- if (inherits(data_viz, "sf")) names(sf::st_drop_geometry(data_viz)) else names(data_viz)
+      display_cols <- if (inherits(data_viz, "sf")) {
+        names(sf::st_drop_geometry(data_viz))
+      } else {
+        names(data_viz)
+      }
       display_cols <- setdiff(display_cols, "geometry")
 
       selected_cols <- if (isTRUE(input$table_select_all)) {
@@ -546,7 +586,11 @@ mod_results_viz_server <- function(id, app_data) {
       req(viz_data())
 
       data_viz <- viz_data()
-      display_cols <- if (inherits(data_viz, "sf")) names(sf::st_drop_geometry(data_viz)) else names(data_viz)
+      display_cols <- if (inherits(data_viz, "sf")) {
+        names(sf::st_drop_geometry(data_viz))
+      } else {
+        names(data_viz)
+      }
       display_cols <- setdiff(display_cols, "geometry")
 
       if (length(input$table_columns) == 0 && "id_point" %in% display_cols) {
@@ -558,7 +602,8 @@ mod_results_viz_server <- function(id, app_data) {
         return()
       }
 
-      all_selected <- length(display_cols) > 0 && setequal(input$table_columns, display_cols)
+      all_selected <- length(display_cols) > 0 &&
+        setequal(input$table_columns, display_cols)
 
       shinyWidgets::updatePrettySwitch(
         session,
@@ -576,12 +621,27 @@ mod_results_viz_server <- function(id, app_data) {
 
       tagList(
         p(strong("Total points:"), summary_info$n_points),
-        p(strong("Original data loaded:"), if (summary_info$original_loaded) "Yes" else "No"),
-        p(strong("Fetch calculated:"), if (summary_info$fetch_calculated) "Yes" else "No"),
-        p(strong("Depth extracted:"), if (summary_info$depth_extracted) "Yes" else "No"),
-        p(strong("Model applied:"), if (summary_info$model_applied) "Yes" else "No"),
+        p(
+          strong("Original data loaded:"),
+          if (summary_info$original_loaded) "Yes" else "No"
+        ),
+        p(
+          strong("Fetch calculated:"),
+          if (summary_info$fetch_calculated) "Yes" else "No"
+        ),
+        p(
+          strong("Depth extracted:"),
+          if (summary_info$depth_extracted) "Yes" else "No"
+        ),
+        p(
+          strong("Model applied:"),
+          if (summary_info$model_applied) "Yes" else "No"
+        ),
         if (!is.null(summary_info$model_timestamp)) {
-          p(strong("Last model run:"), format(summary_info$model_timestamp, "%Y-%m-%d %H:%M"))
+          p(
+            strong("Last model run:"),
+            format(summary_info$model_timestamp, "%Y-%m-%d %H:%M")
+          )
         }
       )
     })
@@ -597,30 +657,35 @@ mod_results_viz_server <- function(id, app_data) {
 
       # Model type and predictions
       summary_items[[length(summary_items) + 1]] <- p(
-        strong("Model type:"), params$model_type
+        strong("Model type:"),
+        params$model_type
       )
 
       summary_items[[length(summary_items) + 1]] <- p(
-        strong("Prediction types:"), paste(params$prediction_types, collapse = ", ")
+        strong("Prediction types:"),
+        paste(params$prediction_types, collapse = ", ")
       )
 
       # Results summary
       if ("pa_prob" %in% names(results)) {
         pa_mean <- mean(results$pa_prob, na.rm = TRUE)
         summary_items[[length(summary_items) + 1]] <- p(
-          strong("Mean presence probability:"), paste0(round(pa_mean * 100, 1), "%")
+          strong("Mean presence probability:"),
+          paste0(round(pa_mean * 100, 1), "%")
         )
       }
 
       if ("cover_pred" %in% names(results)) {
         cover_mean <- mean(results$cover_pred, na.rm = TRUE)
         summary_items[[length(summary_items) + 1]] <- p(
-          strong("Mean cover prediction:"), paste0(round(cover_mean, 1), "%")
+          strong("Mean cover prediction:"),
+          paste0(round(cover_mean, 1), "%")
         )
       }
 
       summary_items[[length(summary_items) + 1]] <- p(
-        strong("Vmax model:"), params$vmax_model
+        strong("Vmax model:"),
+        params$vmax_model
       )
 
       tagList(summary_items)
@@ -636,23 +701,44 @@ mod_results_viz_server <- function(id, app_data) {
 
       # Predictors
       predictors <- c()
-      if ("depth_m" %in% available_cols) predictors <- c(predictors, "Depth")
-      if ("fetch_km" %in% available_cols) predictors <- c(predictors, "Fetch")
+      if ("depth_m" %in% available_cols) {
+        predictors <- c(predictors, "Depth")
+      }
+      if ("fetch_km" %in% available_cols) {
+        predictors <- c(predictors, "Fetch")
+      }
 
       # Model outputs
       outputs <- c()
-      if ("pa_prob" %in% available_cols) outputs <- c(outputs, "Presence/Absence predictions")
-      if ("cover_pred" %in% available_cols) outputs <- c(outputs, "Cover predictions")
-      if ("pa_post_hoc" %in% available_cols) outputs <- c(outputs, "Post-hoc Presence/Absence")
-      if ("cover_post_hoc" %in% available_cols) outputs <- c(outputs, "Post-hoc Cover")
+      if ("pa_prob" %in% available_cols) {
+        outputs <- c(outputs, "Presence/Absence predictions")
+      }
+      if ("cover_pred" %in% available_cols) {
+        outputs <- c(outputs, "Cover predictions")
+      }
+      if ("pa_post_hoc" %in% available_cols) {
+        outputs <- c(outputs, "Post-hoc Presence/Absence")
+      }
+      if ("cover_post_hoc" %in% available_cols) {
+        outputs <- c(outputs, "Post-hoc Cover")
+      }
 
       tagList(
         h5("Available Predictors:"),
-        p(if (length(predictors) > 0) paste(predictors, collapse = ", ") else "None"),
+        p(
+          if (length(predictors) > 0) {
+            paste(predictors, collapse = ", ")
+          } else {
+            "None"
+          }
+        ),
         h5("Available Model Outputs:"),
         p(if (length(outputs) > 0) paste(outputs, collapse = ", ") else "None"),
         h5("Data Columns:"),
-        p(paste(available_cols[!available_cols %in% "geometry"], collapse = ", "))
+        p(paste(
+          available_cols[!available_cols %in% "geometry"],
+          collapse = ", "
+        ))
       )
     })
 
@@ -662,14 +748,22 @@ mod_results_viz_server <- function(id, app_data) {
       req(input$dist_type)
       req(input$dist_predictors)
 
-      showNotification("Generating distribution plot...", type = "message", duration = 2)
+      showNotification(
+        "Generating distribution plot...",
+        type = "message",
+        duration = 2
+      )
 
       tryCatch(
         {
           data <- app_data$model_results
 
           # Convert sf to data.frame for plotting
-          plot_data <- if (inherits(data, "sf")) sf::st_drop_geometry(data) else data
+          plot_data <- if (inherits(data, "sf")) {
+            sf::st_drop_geometry(data)
+          } else {
+            data
+          }
           values$dist_plot <- plot_sav_distribution(
             dat = plot_data,
             type = input$dist_type,
@@ -682,7 +776,11 @@ mod_results_viz_server <- function(id, app_data) {
             axis.title = ggplot2::element_text(size = 14)
           )
           values$dist_plot_ready <- TRUE
-          showNotification("Distribution plot generated successfully!", type = "message", duration = 3)
+          showNotification(
+            "Distribution plot generated successfully!",
+            type = "message",
+            duration = 3
+          )
         },
         error = function(e) {
           showNotification(
@@ -710,14 +808,22 @@ mod_results_viz_server <- function(id, app_data) {
       req(app_data$model_results)
       req(input$density_predictors)
 
-      showNotification("Generating density plot...", type = "message", duration = 2)
+      showNotification(
+        "Generating density plot...",
+        type = "message",
+        duration = 2
+      )
 
       tryCatch(
         {
           data <- app_data$model_results
 
           # Convert sf to data.frame for plotting
-          plot_data <- if (inherits(data, "sf")) sf::st_drop_geometry(data) else data
+          plot_data <- if (inherits(data, "sf")) {
+            sf::st_drop_geometry(data)
+          } else {
+            data
+          }
 
           values$density_plot <- plot_sav_density(
             dat = plot_data,
@@ -730,7 +836,11 @@ mod_results_viz_server <- function(id, app_data) {
           )
 
           values$density_plot_ready <- TRUE
-          showNotification("Density plot generated successfully!", type = "message", duration = 3)
+          showNotification(
+            "Density plot generated successfully!",
+            type = "message",
+            duration = 3
+          )
         },
         error = function(e) {
           showNotification(
@@ -777,9 +887,27 @@ mod_results_viz_server <- function(id, app_data) {
         leaflet::addProviderTiles("CartoDB.Positron")
 
       pts_data <- sf::st_drop_geometry(pts)
-      id_col <- if ("point_id" %in% names(pts_data)) "point_id" else if ("sav_point_id" %in% names(pts_data)) "sav_point_id" else NULL
-      depth_col <- if ("depth_m" %in% names(pts_data)) "depth_m" else if ("sav_depth_m" %in% names(pts_data)) "sav_depth_m" else NULL
-      fetch_col <- if ("fetch_km" %in% names(pts_data)) "fetch_km" else if ("sav_fetch_km" %in% names(pts_data)) "sav_fetch_km" else NULL
+      id_col <- if ("point_id" %in% names(pts_data)) {
+        "point_id"
+      } else if ("sav_point_id" %in% names(pts_data)) {
+        "sav_point_id"
+      } else {
+        NULL
+      }
+      depth_col <- if ("depth_m" %in% names(pts_data)) {
+        "depth_m"
+      } else if ("sav_depth_m" %in% names(pts_data)) {
+        "sav_depth_m"
+      } else {
+        NULL
+      }
+      fetch_col <- if ("fetch_km" %in% names(pts_data)) {
+        "fetch_km"
+      } else if ("sav_fetch_km" %in% names(pts_data)) {
+        "sav_fetch_km"
+      } else {
+        NULL
+      }
 
       tooltip_labels <- sprintf(
         "<strong>Point ID:</strong> %s<br/><strong>Depth:</strong> %.2f m<br/>
@@ -789,8 +917,13 @@ mod_results_viz_server <- function(id, app_data) {
         if (!is.null(depth_col)) pts_data[[depth_col]] else NA,
         if (!is.null(fetch_col)) pts_data[[fetch_col]] else NA,
         if ("sav_pa_pred" %in% names(pts_data)) pts_data$sav_pa_pred else NA,
-        if ("sav_cover_pred" %in% names(pts_data)) pts_data$sav_cover_pred else NA
-      ) |> lapply(shiny::HTML)
+        if ("sav_cover_pred" %in% names(pts_data)) {
+          pts_data$sav_cover_pred
+        } else {
+          NA
+        }
+      ) |>
+        lapply(shiny::HTML)
 
       if (!is.null(color_var) && color_var %in% names(pts)) {
         binary_layers <- c("sav_pa_pred", "sav_pa_post_hoc")
@@ -811,7 +944,8 @@ mod_results_viz_server <- function(id, app_data) {
         }
 
         # Determine legend title based on variable
-        legend_title <- switch(color_var,
+        legend_title <- switch(
+          color_var,
           "sav_pa_pred" = "Presence/Absence",
           "sav_pa_post_hoc" = "Presence (Post-hoc)",
           "sav_cover_pred" = "Cover (%)",
@@ -873,12 +1007,18 @@ mod_results_viz_server <- function(id, app_data) {
       data <- viz_data()
 
       # Convert sf to data.frame for table
-      table_data <- if (inherits(data, "sf")) sf::st_drop_geometry(data) else data
+      table_data <- if (inherits(data, "sf")) {
+        sf::st_drop_geometry(data)
+      } else {
+        data
+      }
 
       # Filter columns if specified
       if (!is.null(input$table_columns) && length(input$table_columns) > 0) {
         available_cols <- names(table_data)
-        selected_cols <- input$table_columns[input$table_columns %in% available_cols]
+        selected_cols <- input$table_columns[
+          input$table_columns %in% available_cols
+        ]
         if (length(selected_cols) > 0) {
           table_data <- table_data[, selected_cols, drop = FALSE]
         }
@@ -916,7 +1056,13 @@ mod_results_viz_server <- function(id, app_data) {
       },
       content = function(file) {
         req(values$dist_plot)
-        ggplot2::ggsave(file, values$dist_plot, width = 12, height = 8, dpi = 300)
+        ggplot2::ggsave(
+          file,
+          values$dist_plot,
+          width = 12,
+          height = 8,
+          dpi = 300
+        )
       }
     )
 
@@ -926,7 +1072,13 @@ mod_results_viz_server <- function(id, app_data) {
       },
       content = function(file) {
         req(values$density_plot)
-        ggplot2::ggsave(file, values$density_plot, width = 12, height = 8, dpi = 300)
+        ggplot2::ggsave(
+          file,
+          values$density_plot,
+          width = 12,
+          height = 8,
+          dpi = 300
+        )
       }
     )
 
@@ -943,7 +1095,9 @@ mod_results_viz_server <- function(id, app_data) {
           export_data <- sf::st_drop_geometry(data)
 
           # Always add EPSG:4326 coordinates for export
-          pts_4326 <- if (is.na(sf::st_crs(data)$epsg) || sf::st_crs(data)$epsg != 4326) {
+          pts_4326 <- if (
+            is.na(sf::st_crs(data)$epsg) || sf::st_crs(data)$epsg != 4326
+          ) {
             sf::st_transform(data, 4326)
           } else {
             data
@@ -955,15 +1109,29 @@ mod_results_viz_server <- function(id, app_data) {
             dplyr::rename(longitude_epsg4326 = X, latitude_epsg4326 = Y)
 
           # Avoid duplicating columns if already present
-          coord_cols <- coord_cols[, setdiff(names(coord_cols), names(export_data)), drop = FALSE]
+          coord_cols <- coord_cols[,
+            setdiff(names(coord_cols), names(export_data)),
+            drop = FALSE
+          ]
 
           export_data <- dplyr::bind_cols(export_data, coord_cols)
         }
 
-        priority_cols <- c("id_point", "longitude_epsg4326", "latitude_epsg4326", "longitude", "latitude")
-        available_priority <- priority_cols[priority_cols %in% names(export_data)]
+        priority_cols <- c(
+          "id_point",
+          "longitude_epsg4326",
+          "latitude_epsg4326",
+          "longitude",
+          "latitude"
+        )
+        available_priority <- priority_cols[
+          priority_cols %in% names(export_data)
+        ]
         remaining_cols <- setdiff(names(export_data), available_priority)
-        export_data <- export_data[, c(available_priority, remaining_cols), drop = FALSE]
+        export_data <- export_data[,
+          c(available_priority, remaining_cols),
+          drop = FALSE
+        ]
 
         utils::write.csv(export_data, file, row.names = FALSE)
       }
@@ -1032,9 +1200,18 @@ mod_results_viz_server <- function(id, app_data) {
         dir.create(tmp_dir)
 
         shp_path <- file.path(tmp_dir, "sav_results_spatial.shp")
-        sf::st_write(data, shp_path, driver = "ESRI Shapefile", delete_dsn = TRUE)
+        sf::st_write(
+          data,
+          shp_path,
+          driver = "ESRI Shapefile",
+          delete_dsn = TRUE
+        )
 
-        shp_files <- list.files(tmp_dir, pattern = "sav_results_spatial", full.names = TRUE)
+        shp_files <- list.files(
+          tmp_dir,
+          pattern = "sav_results_spatial",
+          full.names = TRUE
+        )
         utils::zip(zipfile = file, files = shp_files, flags = "-j")
       },
       contentType = "application/zip"
@@ -1063,9 +1240,18 @@ mod_results_viz_server <- function(id, app_data) {
         dir.create(tmp_dir)
 
         shp_path <- file.path(tmp_dir, "sav_results_spatial.shp")
-        sf::st_write(data, shp_path, driver = "ESRI Shapefile", delete_dsn = TRUE)
+        sf::st_write(
+          data,
+          shp_path,
+          driver = "ESRI Shapefile",
+          delete_dsn = TRUE
+        )
 
-        shp_files <- list.files(tmp_dir, pattern = "sav_results_spatial", full.names = TRUE)
+        shp_files <- list.files(
+          tmp_dir,
+          pattern = "sav_results_spatial",
+          full.names = TRUE
+        )
         utils::zip(zipfile = file, files = shp_files, flags = "-j")
       },
       contentType = "application/zip"

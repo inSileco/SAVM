@@ -24,7 +24,10 @@ mod_model_apply_ui <- function(id) {
               style = "text-align: center; padding: 20px;",
               icon("exclamation-triangle", "fa-2x", style = "color: #f39c12;"),
               h4("No Data Available", style = "color: #f39c12;"),
-              p("Please complete the Data Input step first.", style = "color: #7f8c8d;")
+              p(
+                "Please complete the Data Input step first.",
+                style = "color: #7f8c8d;"
+              )
             )
           ),
           conditionalPanel(
@@ -153,7 +156,10 @@ mod_model_apply_ui <- function(id) {
                 selected = "column"
               ),
               conditionalPanel(
-                condition = sprintf("input['%s'] == 'column'", ns("secchi_source")),
+                condition = sprintf(
+                  "input['%s'] == 'column'",
+                  ns("secchi_source")
+                ),
                 selectInput(
                   ns("secchi_column"),
                   "Secchi Depth Column:",
@@ -161,7 +167,10 @@ mod_model_apply_ui <- function(id) {
                 )
               ),
               conditionalPanel(
-                condition = sprintf("input['%s'] == 'constant'", ns("secchi_source")),
+                condition = sprintf(
+                  "input['%s'] == 'constant'",
+                  ns("secchi_source")
+                ),
                 numericInput(
                   ns("secchi_constant"),
                   "Secchi Depth (m):",
@@ -171,7 +180,11 @@ mod_model_apply_ui <- function(id) {
                   step = 0.1
                 )
               ),
-              helpText(tags$span(style = "color: #6c757d;", icon("info-circle"), " Chambers and Kalff (1985) equation parameters for maximum colonization depth.")),
+              helpText(tags$span(
+                style = "color: #6c757d;",
+                icon("info-circle"),
+                " Chambers and Kalff (1985) equation parameters for maximum colonization depth."
+              )),
               selectInput(
                 ns("vmax_model"),
                 "Vmax Model:",
@@ -183,7 +196,10 @@ mod_model_apply_ui <- function(id) {
                 selected = "model_a"
               ),
               conditionalPanel(
-                condition = sprintf("input['%s'] == 'custom'", ns("vmax_model")),
+                condition = sprintf(
+                  "input['%s'] == 'custom'",
+                  ns("vmax_model")
+                ),
                 fluidRow(
                   column(
                     6,
@@ -265,7 +281,10 @@ mod_model_apply_ui <- function(id) {
               style = "text-align: center; padding: 50px;",
               icon("brain", "fa-3x", style = "color: #ccc;"),
               h4("No Models Applied", style = "color: #ccc;"),
-              p("Configure parameters and click 'Apply Models' to see results", style = "color: #999;")
+              p(
+                "Configure parameters and click 'Apply Models' to see results",
+                style = "color: #999;"
+              )
             )
           ),
           conditionalPanel(
@@ -371,7 +390,11 @@ mod_model_apply_server <- function(id, app_data, app_session) {
           session,
           "substrate_column",
           choices = col_names,
-          selected = if ("substrate" %in% col_names) "substrate" else col_names[1]
+          selected = if ("substrate" %in% col_names) {
+            "substrate"
+          } else {
+            col_names[1]
+          }
         )
 
         updateSelectInput(
@@ -385,7 +408,11 @@ mod_model_apply_server <- function(id, app_data, app_session) {
           session,
           "limitation_column",
           choices = col_names,
-          selected = if ("limitation" %in% col_names) "limitation" else col_names[1]
+          selected = if ("limitation" %in% col_names) {
+            "limitation"
+          } else {
+            col_names[1]
+          }
         )
       }
     })
@@ -406,17 +433,20 @@ mod_model_apply_server <- function(id, app_data, app_session) {
         image.height = "200"
       )
 
-
       result <- tryCatch(
         {
           # Assemble data for modeling (combines original + fetch + depth)
           modeling_data <- assemble_modeling_data(app_data)
 
           # Prepare vmax parameters
-          vmax_par <- switch(input$vmax_model,
+          vmax_par <- switch(
+            input$vmax_model,
             "model_a" = list(intercept = 1.40, slope = 1.33),
             "model_b" = list(intercept = 1.32, slope = 1.14),
-            "custom" = list(intercept = input$vmax_intercept, slope = input$vmax_slope)
+            "custom" = list(
+              intercept = input$vmax_intercept,
+              slope = input$vmax_slope
+            )
           )
 
           # Prepare column specifications for predictors
@@ -424,7 +454,11 @@ mod_model_apply_server <- function(id, app_data, app_session) {
           fetch_col <- input$fetch_column
 
           # Prepare post-hoc column specifications if enabled
-          substrate_col <- if (input$use_substrate) input$substrate_column else NULL
+          substrate_col <- if (input$use_substrate) {
+            input$substrate_column
+          } else {
+            NULL
+          }
           secchi_col <- NULL
           if (input$use_secchi) {
             if (input$secchi_source == "constant") {
@@ -434,7 +468,11 @@ mod_model_apply_server <- function(id, app_data, app_session) {
               secchi_col <- input$secchi_column
             }
           }
-          limitation_col <- if (input$use_limitation) input$limitation_column else NULL
+          limitation_col <- if (input$use_limitation) {
+            input$limitation_column
+          } else {
+            NULL
+          }
           # Apply the model to assembled data
           sav_model(
             dat = modeling_data,
@@ -479,7 +517,11 @@ mod_model_apply_server <- function(id, app_data, app_session) {
           depth_column = input$depth_column,
           fetch_column = input$fetch_column,
           use_substrate = input$use_substrate,
-          substrate_column = if (input$use_substrate) input$substrate_column else "not used",
+          substrate_column = if (input$use_substrate) {
+            input$substrate_column
+          } else {
+            "not used"
+          },
           use_secchi = input$use_secchi,
           secchi_column = if (input$use_secchi) {
             if (input$secchi_source == "constant") {
@@ -491,14 +533,30 @@ mod_model_apply_server <- function(id, app_data, app_session) {
             "not used"
           },
           use_limitation = input$use_limitation,
-          limitation_column = if (input$use_limitation) input$limitation_column else "not used",
+          limitation_column = if (input$use_limitation) {
+            input$limitation_column
+          } else {
+            "not used"
+          },
           vmax_model = input$vmax_model,
-          vmax_intercept = if (input$vmax_model == "custom") input$vmax_intercept else NULL,
-          vmax_slope = if (input$vmax_model == "custom") input$vmax_slope else NULL,
+          vmax_intercept = if (input$vmax_model == "custom") {
+            input$vmax_intercept
+          } else {
+            NULL
+          },
+          vmax_slope = if (input$vmax_model == "custom") {
+            input$vmax_slope
+          } else {
+            NULL
+          },
           n_points_modeled = nrow(result)
         )
 
-        showNotification("Model application completed successfully!", type = "message", duration = 3)
+        showNotification(
+          "Model application completed successfully!",
+          type = "message",
+          duration = 3
+        )
       }
     })
 
@@ -528,7 +586,10 @@ mod_model_apply_server <- function(id, app_data, app_session) {
       pred_cols <- grep("_pred$", names(data), value = TRUE)
 
       summary_items <- list()
-      summary_items[[length(summary_items) + 1]] <- p(strong("Points processed:"), nrow(data))
+      summary_items[[length(summary_items) + 1]] <- p(
+        strong("Points processed:"),
+        nrow(data)
+      )
 
       if ("pa_prob" %in% names(data)) {
         pa_mean <- mean(data$pa_prob, na.rm = TRUE)
@@ -617,7 +678,8 @@ mod_model_apply_server <- function(id, app_data, app_session) {
         if ("fetch_km" %in% names(pts_data)) pts_data$fetch_km else NA,
         if ("pa_pred" %in% names(pts_data)) pts_data$pa_pred else NA,
         if ("cover_pred" %in% names(pts_data)) pts_data$cover_pred else NA
-      ) |> lapply(HTML)
+      ) |>
+        lapply(HTML)
 
       map <- leaflet::leaflet() |>
         leaflet::addProviderTiles("CartoDB.Positron")
@@ -647,7 +709,11 @@ mod_model_apply_server <- function(id, app_data, app_session) {
           leaflet::addLegend(
             pal = pal,
             values = pts[[color_var]],
-            title = if (color_var == "cover_pred") "Cover (%)" else "Presence Prob.",
+            title = if (color_var == "cover_pred") {
+              "Cover (%)"
+            } else {
+              "Presence Prob."
+            },
             position = "bottomright"
           )
       } else {

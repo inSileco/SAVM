@@ -64,7 +64,7 @@ all points are outsiders):
 \item \code{direction}: direction (in degrees)
 \item \code{cardinal_direction}: cardinal direction (e.g., N, NE, E, etc.)
 \item \code{weight}: wind weight
-\item \code{transect_length}: transect length in meters computed using \code{\link[sf:geos_measures]{sf::st_length()}}
+\item \code{transect_length}: transect length in meters computed using \code{\link[sf:st_length]{sf::st_length()}}
 \item \code{rank}: transect ranks (the lower the rank, the longer the transect)
 }
 }
@@ -81,9 +81,9 @@ more energy to the water surface, leading to larger waves.
 For all points in \code{points}, \code{n_bearings} radial transects are generated
 by default. If \code{wind_weights} is specified, the column \code{direction}, which
 contains angles in degrees, is used instead to generate the transects. The
-transects are then clipped with the polygon using \code{\link[sf:geos_binary_ops]{sf::st_intersection()}},
+transects are then clipped with the polygon using \code{\link[sf:st_intersection]{sf::st_intersection()}},
 and any lines that are not connected to the points are removed. The length of
-all clipped transects is computed using \code{\link[sf:geos_measures]{sf::st_length()}} and ranked using
+all clipped transects is computed using \code{\link[sf:st_length]{sf::st_length()}} and ranked using
 \code{rank()}. The resulting spatial object is stored as the \code{transect_lines}
 element in the returned list and is used to generate the second element:
 \code{mean_fetch} that includes wind fetch averages.
@@ -134,7 +134,7 @@ plot(res$transect_lines |> sf::st_geometry(), add = TRUE, col = 2, lwd = 0.5)
 }
 \references{
 \itemize{
-\item For an implementation leveraging  \code{\link[sf:geos_unary]{sf::st_buffer()}}, see
+\item For an implementation leveraging  \code{\link[sf:st_buffer]{sf::st_buffer()}}, see
 \url{https://github.com/blasee/windfetch}. See also \url{https://github.com/FishEcologyScience/SAVM/issues/15}.
 \item Croft-White, M.V., Tang, R., Gardner Costa, J., Doka, S.E., and Midwood, J.
 D. 2022. Modelling submerged aquatic vegetation presence and percent cover to

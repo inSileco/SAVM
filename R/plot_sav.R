@@ -126,7 +126,8 @@ plot_sav_distribution <- function(
         cut(
           dat$depth_m,
           breaks = c(seq(0, max_depth, by = 1), Inf),
-          include.lowest = TRUE, right = FALSE,
+          include.lowest = TRUE,
+          right = FALSE,
           labels = c(
             paste0(
               seq(0, max_depth - 1, by = 1),
@@ -143,7 +144,8 @@ plot_sav_distribution <- function(
         cut(
           dat$fetch_km,
           breaks = c(seq(0, max_fetch, by = 1), Inf),
-          include.lowest = TRUE, right = FALSE,
+          include.lowest = TRUE,
+          right = FALSE,
           labels = c(
             paste0(
               seq(0, max_fetch - 1, by = 1),
@@ -186,54 +188,91 @@ plot_sav_distribution <- function(
   # Define colors
   cover_palette <- c(
     "#878787",
-    "#40004B", "#762A83", "#9970AB", "#C2A5CF", "#E7D4E8",
-    "#D7EED1", "#9CCE97", "#54A35B", "#1A7234", "#00401A"
+    "#40004B",
+    "#762A83",
+    "#9970AB",
+    "#C2A5CF",
+    "#E7D4E8",
+    "#D7EED1",
+    "#9CCE97",
+    "#54A35B",
+    "#1A7234",
+    "#00401A"
   )
   cols <- c("#56B4E9", "#52854C")
 
   # Presence/Absence by Fetch
   if ("pa" %in% type && "fetch" %in% predictors && has_fetch && has_pa) {
-    plots[["PA_Fetch"]] <- ggplot2::ggplot(dat, ggplot2::aes(x = Fetch_Bin, fill = PA_Factor)) +
+    plots[["PA_Fetch"]] <- ggplot2::ggplot(
+      dat,
+      ggplot2::aes(x = Fetch_Bin, fill = PA_Factor)
+    ) +
       ggplot2::geom_bar() +
       ggplot2::scale_fill_manual(values = cols) +
-      ggplot2::labs(x = "Fetch Bin", y = "Number of Records", fill = "SAV P/A") +
+      ggplot2::labs(
+        x = "Fetch Bin",
+        y = "Number of Records",
+        fill = "SAV P/A"
+      ) +
       ggplot2::theme_minimal() +
       ggplot2::theme(...)
   }
 
   # Presence/Absence by Depth
   if ("pa" %in% type && "depth" %in% predictors && has_depth && has_pa) {
-    plots[["PA_Depth"]] <- ggplot2::ggplot(dat, ggplot2::aes(x = Depth_Bin, fill = PA_Factor)) +
+    plots[["PA_Depth"]] <- ggplot2::ggplot(
+      dat,
+      ggplot2::aes(x = Depth_Bin, fill = PA_Factor)
+    ) +
       ggplot2::geom_bar() +
       ggplot2::scale_fill_manual(values = cols) +
-      ggplot2::labs(x = "Depth Bin", y = "Number of Records", fill = "SAV P/A") +
+      ggplot2::labs(
+        x = "Depth Bin",
+        y = "Number of Records",
+        fill = "SAV P/A"
+      ) +
       ggplot2::theme_minimal() +
       ggplot2::theme(...)
   }
 
   # Cover by Fetch
   if ("cover" %in% type && "fetch" %in% predictors && has_fetch && has_cover) {
-    plots[["Cover_Fetch"]] <- ggplot2::ggplot(dat, ggplot2::aes(x = Fetch_Bin, fill = Cover_Bin)) +
+    plots[["Cover_Fetch"]] <- ggplot2::ggplot(
+      dat,
+      ggplot2::aes(x = Fetch_Bin, fill = Cover_Bin)
+    ) +
       ggplot2::geom_bar() +
       ggplot2::scale_fill_manual(values = cover_palette, drop = FALSE) +
-      ggplot2::labs(x = "Fetch Bin", y = "Number of Records", fill = "SAV Cover") +
+      ggplot2::labs(
+        x = "Fetch Bin",
+        y = "Number of Records",
+        fill = "SAV Cover"
+      ) +
       ggplot2::theme_minimal() +
       ggplot2::theme(...)
   }
 
   # Cover by Depth
   if ("cover" %in% type && "depth" %in% predictors && has_depth && has_cover) {
-    plots[["Cover_Depth"]] <- ggplot2::ggplot(dat, ggplot2::aes(x = Depth_Bin, fill = Cover_Bin)) +
+    plots[["Cover_Depth"]] <- ggplot2::ggplot(
+      dat,
+      ggplot2::aes(x = Depth_Bin, fill = Cover_Bin)
+    ) +
       ggplot2::geom_bar() +
       ggplot2::scale_fill_manual(values = cover_palette, drop = FALSE) +
-      ggplot2::labs(x = "Depth Bin", y = "Number of Records", fill = "SAV Cover") +
+      ggplot2::labs(
+        x = "Depth Bin",
+        y = "Number of Records",
+        fill = "SAV Cover"
+      ) +
       ggplot2::theme_minimal() +
       ggplot2::theme(...)
   }
 
   # Arrange plots dynamically using patchwork
   if (length(plots) > 0) {
-    combined_plot <- patchwork::wrap_plots(plots) + patchwork::plot_layout(ncol = min(2, length(plots)))
+    combined_plot <- patchwork::wrap_plots(plots) +
+      patchwork::plot_layout(ncol = min(2, length(plots)))
     return(combined_plot)
   } else {
     rlang::abort("No suitable columns found for plotting.")
@@ -324,11 +363,16 @@ plot_sav_density <- function(
       Mean_Value = mean(depth_m, na.rm = TRUE)
     )
 
-    plots[["Depth"]] <- ggplot2::ggplot(dat, ggplot2::aes(x = depth_m, fill = PA_Factor)) +
+    plots[["Depth"]] <- ggplot2::ggplot(
+      dat,
+      ggplot2::aes(x = depth_m, fill = PA_Factor)
+    ) +
       ggplot2::geom_density(alpha = 0.5) +
       ggplot2::geom_vline(
-        dat = mean_depths, ggplot2::aes(xintercept = Mean_Value, color = PA_Factor),
-        linetype = "dotted", linewidth = 1
+        dat = mean_depths,
+        ggplot2::aes(xintercept = Mean_Value, color = PA_Factor),
+        linetype = "dotted",
+        linewidth = 1
       ) +
       ggplot2::scale_fill_manual(values = cols) +
       ggplot2::scale_color_manual(values = cols) +
@@ -349,11 +393,16 @@ plot_sav_density <- function(
       Mean_Value = mean(fetch_km, na.rm = TRUE)
     )
 
-    plots[["Fetch"]] <- ggplot2::ggplot(dat, ggplot2::aes(x = fetch_km, fill = PA_Factor)) +
+    plots[["Fetch"]] <- ggplot2::ggplot(
+      dat,
+      ggplot2::aes(x = fetch_km, fill = PA_Factor)
+    ) +
       ggplot2::geom_density(alpha = 0.5) +
       ggplot2::geom_vline(
-        data = mean_fetch, ggplot2::aes(xintercept = Mean_Value, color = PA_Factor),
-        linetype = "dotted", linewidth = 1
+        data = mean_fetch,
+        ggplot2::aes(xintercept = Mean_Value, color = PA_Factor),
+        linetype = "dotted",
+        linewidth = 1
       ) +
       ggplot2::scale_fill_manual(values = cols) +
       ggplot2::scale_color_manual(values = cols) +
@@ -370,7 +419,8 @@ plot_sav_density <- function(
   # Arrange dynamically using patchwork
   plots <- Filter(Negate(is.null), plots)
   if (length(plots) > 0) {
-    combined_plot <- patchwork::wrap_plots(plots) + patchwork::plot_layout(ncol = min(2, length(plots)))
+    combined_plot <- patchwork::wrap_plots(plots) +
+      patchwork::plot_layout(ncol = min(2, length(plots)))
     return(combined_plot)
   } else {
     rlang::abort("No suitable columns found for plotting.")
@@ -473,7 +523,6 @@ plot_sav_tmap <- function(
     abort_unavailable_layer("cover_pred")
   }
 
-
   # Base map with polygon
   map <- tmap::tm_shape(study_zone$polygon) +
     tmap::tm_polygons(
@@ -487,7 +536,8 @@ plot_sav_tmap <- function(
   suppressMessages({
     # Overlay points with different attributes if they exist
     if ("cover_pred" %in% layers) {
-      map <- map + tmap::tm_shape(study_zone$points) +
+      map <- map +
+        tmap::tm_shape(study_zone$points) +
         tmap::tm_dots(
           col = cover_col,
           group = "Cover",
@@ -505,7 +555,8 @@ plot_sav_tmap <- function(
         )
       }
 
-      map <- map + tmap::tm_shape(study_zone$points) +
+      map <- map +
+        tmap::tm_shape(study_zone$points) +
         tmap::tm_dots(
           col = pa_col,
           group = "Presence",
@@ -515,7 +566,8 @@ plot_sav_tmap <- function(
     }
 
     if ("depth" %in% layers) {
-      map <- map + tmap::tm_shape(study_zone$points) +
+      map <- map +
+        tmap::tm_shape(study_zone$points) +
         tmap::tm_dots(
           col = "depth_m",
           group = "Depth",
@@ -531,7 +583,8 @@ plot_sav_tmap <- function(
     }
 
     if ("fetch" %in% layers) {
-      map <- map + tmap::tm_shape(study_zone$points) +
+      map <- map +
+        tmap::tm_shape(study_zone$points) +
         tmap::tm_dots(
           col = "fetch_km",
           group = "Fetch",

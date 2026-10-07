@@ -72,7 +72,8 @@ test_that("sav_model() works", {
           pa_threshold = 0.4,
           depth = NULL,
           fetch = NULL
-        ), res2
+        ),
+        res2
       )
     }
   )
