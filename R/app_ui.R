@@ -108,7 +108,7 @@ app_ui <- function(request) {
                 solidHeader = TRUE,
                 width = 12,
                 p(
-                  "This application provides a user-friendly interface for the SAVM (Submerged Aquatic Vegetation Model) R package (see link in ‘Help’ section). This application allows users to import spatial and tabular data, calculate fetch within a water body, and apply various models to predict the potential presence or percent coverage of SAV. See the ‘Help’ section for more information."
+                  "This application provides a user-friendly interface for the SAVM (Submerged Aquatic Vegetation Model) R package (see link in 'Help' section). This application allows users to import spatial and tabular data, calculate fetch within a water body, and apply various models to predict the potential presence or percent coverage of SAV. See the 'Help' section for more information."
                 ),
                 p("Follow the steps in the sidebar to:"),
                 tags$ol(
@@ -131,7 +131,7 @@ app_ui <- function(request) {
                 hr(),
                 h5("Getting Started:"),
                 p(
-                  "Click on '1. Data Input' or ‘Start Analysis’ to begin working with the application, or use the sidebar navigation to jump between steps."
+                  "Click on '1. Data Input' or 'Start Analysis' to begin working with the application, or use the sidebar navigation to jump between steps."
                 ),
                 br(),
                 actionButton(
