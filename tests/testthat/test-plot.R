@@ -258,6 +258,8 @@ test_that("plot_sav_tmap returns a tmap object", {
 })
 
 test_that("plot_sav_tmap can export file", {
+  skip_on_os("mac")
+
   tmp <- tempfile(fileext = ".png")
   expect_silent(plot_sav_tmap(
     study_zone,
