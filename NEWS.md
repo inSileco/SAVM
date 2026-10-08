@@ -1,6 +1,13 @@
+# SAVM 0.1.0
+
+* Fix problematic conversion to one-column matrix.
+* Lint code. 
+* CI update.
+* Manifest update.
+
 # SAVM 0.0.2
 
-* Shiny App that expose the package capacities.
+* New shiny app that exposes the package capacities.
 * `compute_fetch()` gains argument `land_polygon` to work with land polygons.
 * Bearings are oriented properly and the element `transect_lines` of the object returned by `compute_fetch()` gains a column `cardinal_direction` (see #15).
 * Argument `remove_outsiders` has been removed from `compute_fetch()`, instead
