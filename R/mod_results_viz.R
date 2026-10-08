@@ -884,7 +884,7 @@ mod_results_viz_server <- function(id, app_data) {
       color_var <- input$map_layer
 
       map <- leaflet::leaflet() |>
-        leaflet::addProviderTiles("CartoDB.Positron")
+        add_basemap()
 
       pts_data <- sf::st_drop_geometry(pts)
       id_col <- if ("point_id" %in% names(pts_data)) {

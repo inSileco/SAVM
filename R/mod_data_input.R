@@ -351,7 +351,7 @@ mod_data_input_server <- function(id, app_data, app_session) {
 
       base_manual_map <- leaflet::leaflet() |>
         leaflet::setView(lng = -83.5, lat = 45.0, zoom = 6) |>
-        leaflet::addProviderTiles("CartoDB.Positron") |>
+        add_basemap() |>
         leaflet::addScaleBar(position = "bottomleft") |>
         leafpm::addPmToolbar(
           toolbarOptions = leafpm::pmToolbarOptions(
@@ -767,7 +767,7 @@ mod_data_input_server <- function(id, app_data, app_session) {
 
       # Base map
       m <- leaflet::leaflet() |>
-        leaflet::addProviderTiles("CartoDB.Positron") |>
+        add_basemap() |>
         leaflet::addPolygons(
           data = pol,
           fillColor = "#a1d99b",

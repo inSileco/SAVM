@@ -682,7 +682,7 @@ mod_model_apply_server <- function(id, app_data, app_session) {
         lapply(HTML)
 
       map <- leaflet::leaflet() |>
-        leaflet::addProviderTiles("CartoDB.Positron")
+        add_basemap()
 
       if (!is.null(color_var)) {
         # Create color palette

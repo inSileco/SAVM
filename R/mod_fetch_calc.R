@@ -572,7 +572,7 @@ mod_fetch_calc_server <- function(id, app_data, app_session) {
 
       overlay_groups <- c("Points")
       map <- leaflet::leaflet() |>
-        leaflet::addProviderTiles("CartoDB.Positron")
+        add_basemap()
 
       if (!is.null(polygon)) {
         map <- map |>
