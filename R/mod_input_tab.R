@@ -23,7 +23,10 @@ mod_input_tab_ui <- function(id) {
               style = "text-align: center; padding: 50px;",
               icon("info-circle", "fa-3x", style = "color: #3498db;"),
               h4("Input table not available yet", style = "color: #3498db;"),
-              p("Upload data (and optionally calculate fetch/depth) to preview the assembled table.", style = "color: #7f8c8d;")
+              p(
+                "Upload data (and optionally calculate fetch/depth) to preview the assembled table.",
+                style = "color: #7f8c8d;"
+              )
             )
           )
         ),
@@ -121,28 +124,54 @@ mod_input_tab_server <- function(id, app_data) {
       data_summary <- get_data_summary(app_data)
       data_df <- sf::st_drop_geometry(data)
 
-      fetch_na <- if ("fetch_km" %in% names(data_df)) sum(is.na(data_df$fetch_km)) else NA
-      depth_na <- if ("depth_m" %in% names(data_df)) sum(is.na(data_df$depth_m)) else NA
+      fetch_na <- if ("fetch_km" %in% names(data_df)) {
+        sum(is.na(data_df$fetch_km))
+      } else {
+        NA
+      }
+      depth_na <- if ("depth_m" %in% names(data_df)) {
+        sum(is.na(data_df$depth_m))
+      } else {
+        NA
+      }
 
       status_badge <- function(condition, label_true, label_false) {
         if (isTRUE(condition)) {
-          tags$p(icon("check-circle", style = "color: #27ae60;"), span(label_true))
+          tags$p(
+            icon("check-circle", style = "color: #27ae60;"),
+            span(label_true)
+          )
         } else {
-          tags$p(icon("times-circle", style = "color: #c0392b;"), span(label_false))
+          tags$p(
+            icon("times-circle", style = "color: #c0392b;"),
+            span(label_false)
+          )
         }
       }
 
       tagList(
         p(strong("Rows in assembled table:"), nrow(data_df)),
-        status_badge(data_summary$fetch_calculated, "Fetch calculated", "Fetch pending"),
+        status_badge(
+          data_summary$fetch_calculated,
+          "Fetch calculated",
+          "Fetch pending"
+        ),
         if (!is.na(fetch_na)) {
           p(icon("info-circle"), strong("Points missing fetch:"), fetch_na)
         },
-        status_badge(data_summary$depth_extracted, "Depth extracted", "Depth pending"),
+        status_badge(
+          data_summary$depth_extracted,
+          "Depth extracted",
+          "Depth pending"
+        ),
         if (!is.na(depth_na)) {
           p(icon("info-circle"), strong("Points missing depth:"), depth_na)
         },
-        status_badge(data_summary$model_applied, "Model applied", "Model pending")
+        status_badge(
+          data_summary$model_applied,
+          "Model applied",
+          "Model pending"
+        )
       )
     })
 

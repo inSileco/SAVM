@@ -5,9 +5,27 @@
 #' @noRd
 #'
 globalVariables(c(
-  "cardinal_direction", "direction", "fetch", "id_point", "weight", "outsider",
-  "Cover_Bin", "Depth_Bin", "Fetch_Bin", "Mean_Value", "PA_Factor", "depth_m", "fetch_km", "limitation_secchi", "transect_length", "vmax", "pa", "geometry",
-  "weighted_fetch_km", "X", "Y"
+  "cardinal_direction",
+  "direction",
+  "fetch",
+  "id_point",
+  "weight",
+  "outsider",
+  "Cover_Bin",
+  "Depth_Bin",
+  "Fetch_Bin",
+  "Mean_Value",
+  "PA_Factor",
+  "depth_m",
+  "fetch_km",
+  "limitation_secchi",
+  "transect_length",
+  "vmax",
+  "pa",
+  "geometry",
+  "weighted_fetch_km",
+  "X",
+  "Y"
 ))
 
 
@@ -79,7 +97,8 @@ sav_inform <- function(...) {
 }
 
 sav_warn <- function(...) {
-  is_verbose_mode <- getOption("savm.verbose", "verbose") %in% c("verbose", "warning")
+  is_verbose_mode <- getOption("savm.verbose", "verbose") %in%
+    c("verbose", "warning")
   if (is_verbose_mode) {
     rlang::local_options(rlib_message_verbosity = "verbose")
     rlang::warn(...)

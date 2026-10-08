@@ -23,7 +23,10 @@ mod_fetch_calc_ui <- function(id) {
               style = "text-align: center; padding: 20px;",
               icon("exclamation-triangle", "fa-2x", style = "color: #f39c12;"),
               h4("No Data Avaliable", style = "color: #f39c12;"),
-              p("Please complete the Data Input step first.", style = "color: #7f8c8d;")
+              p(
+                "Please complete the Data Input step first.",
+                style = "color: #7f8c8d;"
+              )
             )
           ),
           conditionalPanel(
@@ -38,7 +41,10 @@ mod_fetch_calc_ui <- function(id) {
               inline = TRUE
             ),
             conditionalPanel(
-              condition = sprintf("input['%s'] == false", ns("use_polygon_upload")),
+              condition = sprintf(
+                "input['%s'] == false",
+                ns("use_polygon_upload")
+              ),
               selectInput(
                 ns("polygon_library"),
                 "Available polygons:",
@@ -47,12 +53,26 @@ mod_fetch_calc_ui <- function(id) {
               )
             ),
             conditionalPanel(
-              condition = sprintf("input['%s'] == true", ns("use_polygon_upload")),
+              condition = sprintf(
+                "input['%s'] == true",
+                ns("use_polygon_upload")
+              ),
               shp_help_text(),
               fileInput(
                 ns("aoi_polygon"),
                 "Choose Spatial File:",
-                accept = c(".shp", ".geojson", ".gpkg", ".cpg", ".dbf", ".prj", ".sbn", ".sbx", ".xml", ".shx"),
+                accept = c(
+                  ".shp",
+                  ".geojson",
+                  ".gpkg",
+                  ".cpg",
+                  ".dbf",
+                  ".prj",
+                  ".sbn",
+                  ".sbx",
+                  ".xml",
+                  ".shx"
+                ),
                 multiple = TRUE
               )
             ),
@@ -87,17 +107,30 @@ mod_fetch_calc_ui <- function(id) {
               inline = TRUE
             ),
             conditionalPanel(
-              condition = sprintf("input['%s'] == true", ns("use_wind_weights")),
+              condition = sprintf(
+                "input['%s'] == true",
+                ns("use_wind_weights")
+              ),
               h6(strong("Upload wind weights CSV")),
-              helpText(tags$span(style = "color: #6c757d;", icon("info-circle"), " CSV must contain 'direction' (0-360 degrees) and 'weight' columns.")),
-              template_download_button(ns("download_wind_weight_template"), "Wind Weights Template"),
+              helpText(tags$span(
+                style = "color: #6c757d;",
+                icon("info-circle"),
+                " CSV must contain 'direction' (0-360 degrees) and 'weight' columns."
+              )),
+              template_download_button(
+                ns("download_wind_weight_template"),
+                "Wind Weights Template"
+              ),
               fileInput(
                 ns("wind_weights_file"),
                 NULL,
                 accept = ".csv"
               ),
               conditionalPanel(
-                condition = sprintf("output['%s'] == true", ns("wind_weights_valid")),
+                condition = sprintf(
+                  "output['%s'] == true",
+                  ns("wind_weights_valid")
+                ),
                 h5("Wind Weights Preview:"),
                 DT::DTOutput(ns("wind_weights_preview"))
               )
@@ -107,11 +140,21 @@ mod_fetch_calc_ui <- function(id) {
               column(2),
               column(
                 4,
-                actionButton(ns("calculate_fetch"), "Calculate Fetch", class = "btn-primary btn-block", icon = icon("wind"))
+                actionButton(
+                  ns("calculate_fetch"),
+                  "Calculate Fetch",
+                  class = "btn-primary btn-block",
+                  icon = icon("wind")
+                )
               ),
               column(
                 4,
-                actionButton(ns("clear_results"), "Clear Results", class = "btn-danger btn-block", icon = icon("eraser"))
+                actionButton(
+                  ns("clear_results"),
+                  "Clear Results",
+                  class = "btn-danger btn-block",
+                  icon = icon("eraser")
+                )
               )
             )
           )
@@ -127,12 +170,18 @@ mod_fetch_calc_ui <- function(id) {
           solidHeader = TRUE,
           width = NULL,
           conditionalPanel(
-            condition = sprintf("output['%s'] == false", ns("fetch_calculated")),
+            condition = sprintf(
+              "output['%s'] == false",
+              ns("fetch_calculated")
+            ),
             div(
               style = "text-align: center; padding: 50px;",
               icon("wind", "fa-3x", style = "color: #ccc;"),
               h4("No Fetch Calculated", style = "color: #ccc;"),
-              p("Configure parameters and click 'Calculate Fetch' to see results", style = "color: #999;")
+              p(
+                "Configure parameters and click 'Calculate Fetch' to see results",
+                style = "color: #999;"
+              )
             )
           ),
           conditionalPanel(
@@ -180,7 +229,8 @@ mod_fetch_calc_server <- function(id, app_data, app_session) {
       polygon_data = NULL
     )
 
-    observeEvent(app_data$fetch_results,
+    observeEvent(
+      app_data$fetch_results,
       {
         values$fetch_results <- app_data$fetch_results
       },
@@ -200,7 +250,10 @@ mod_fetch_calc_server <- function(id, app_data, app_session) {
         pattern = "\\.(gpkg|geojson)$",
         full.names = FALSE
       )
-      polygon_choices <- stats::setNames(polygon_files, tools::file_path_sans_ext(polygon_files))
+      polygon_choices <- stats::setNames(
+        polygon_files,
+        tools::file_path_sans_ext(polygon_files)
+      )
 
       updateSelectInput(
         session,
@@ -216,7 +269,10 @@ mod_fetch_calc_server <- function(id, app_data, app_session) {
 
       tryCatch(
         {
-          wind_data <- utils::read.csv(input$wind_weights_file$datapath, stringsAsFactors = FALSE)
+          wind_data <- utils::read.csv(
+            input$wind_weights_file$datapath,
+            stringsAsFactors = FALSE
+          )
 
           # Validate required columns
           if (!all(c("direction", "weight") %in% names(wind_data))) {
@@ -241,7 +297,11 @@ mod_fetch_calc_server <- function(id, app_data, app_session) {
           }
 
           values$wind_weights <- wind_data
-          showNotification("Wind weights loaded successfully", type = "message", duration = 3)
+          showNotification(
+            "Wind weights loaded successfully",
+            type = "message",
+            duration = 3
+          )
         },
         error = function(e) {
           showNotification(
@@ -281,7 +341,12 @@ mod_fetch_calc_server <- function(id, app_data, app_session) {
         "sav_wind_weights_template.csv"
       },
       content = function(file) {
-        template_path <- system.file("extdata", "templates", "wind_weights_template.csv", package = "SAVM")
+        template_path <- system.file(
+          "extdata",
+          "templates",
+          "wind_weights_template.csv",
+          package = "SAVM"
+        )
         file.copy(template_path, file)
       }
     )
@@ -290,7 +355,6 @@ mod_fetch_calc_server <- function(id, app_data, app_session) {
     observeEvent(input$calculate_fetch, {
       req(app_data$original_data)
       req(app_data$data_valid)
-
 
       # Calculate fetch
       shinycssloaders::showPageSpinner(
@@ -304,7 +368,11 @@ mod_fetch_calc_server <- function(id, app_data, app_session) {
 
       tryCatch(
         {
-          showNotification("Processing polygon...", type = "message", duration = 2)
+          showNotification(
+            "Processing polygon...",
+            type = "message",
+            duration = 2
+          )
 
           # Select polygon source
           if (isTRUE(input$use_polygon_upload)) {
@@ -325,7 +393,9 @@ mod_fetch_calc_server <- function(id, app_data, app_session) {
             req(input$polygon_library)
 
             polygon_file <- system.file(
-              "extdata", "polygons", input$polygon_library,
+              "extdata",
+              "polygons",
+              input$polygon_library,
               package = "SAVM"
             )
             polygon <- sf::st_read(polygon_file, quiet = TRUE)
@@ -334,19 +404,29 @@ mod_fetch_calc_server <- function(id, app_data, app_session) {
           # Store for later use
           values$polygon_data <- polygon
 
-          showNotification("Calculating fetch...", type = "message", duration = 2)
+          showNotification(
+            "Calculating fetch...",
+            type = "message",
+            duration = 2
+          )
 
           # Extract data from original data
           points <- app_data$original_data$points
 
           # Check if polygon is available
           if (is.null(polygon)) {
-            showNotification("Please select or upload a polygon first", type = "error", duration = 5)
+            showNotification(
+              "Please select or upload a polygon first",
+              type = "error",
+              duration = 5
+            )
             return()
           }
 
           # Prepare wind weights if using custom
-          wind_weights <- if (input$use_wind_weights && !is.null(values$wind_weights)) {
+          wind_weights <- if (
+            input$use_wind_weights && !is.null(values$wind_weights)
+          ) {
             values$wind_weights
           } else {
             NULL
@@ -375,7 +455,11 @@ mod_fetch_calc_server <- function(id, app_data, app_session) {
             used_wind_weights = !is.null(wind_weights)
           )
 
-          showNotification("Fetch calculation completed successfully!", type = "message", duration = 3)
+          showNotification(
+            "Fetch calculation completed successfully!",
+            type = "message",
+            duration = 3
+          )
         },
         error = function(e) {
           showNotification(
@@ -465,15 +549,24 @@ mod_fetch_calc_server <- function(id, app_data, app_session) {
       }
 
       target_crs <- 4326
-      if (!is.null(sf::st_crs(pts)) && !identical(sf::st_crs(pts)$epsg, target_crs)) {
+      if (
+        !is.null(sf::st_crs(pts)) &&
+          !identical(sf::st_crs(pts)$epsg, target_crs)
+      ) {
         pts <- sf::st_transform(pts, target_crs)
       }
-      if (!is.null(transects) && !is.null(sf::st_crs(transects)) &&
-        !identical(sf::st_crs(transects)$epsg, target_crs)) {
+      if (
+        !is.null(transects) &&
+          !is.null(sf::st_crs(transects)) &&
+          !identical(sf::st_crs(transects)$epsg, target_crs)
+      ) {
         transects <- sf::st_transform(transects, target_crs)
       }
-      if (!is.null(polygon) && !is.null(sf::st_crs(polygon)) &&
-        !identical(sf::st_crs(polygon)$epsg, target_crs)) {
+      if (
+        !is.null(polygon) &&
+          !is.null(sf::st_crs(polygon)) &&
+          !identical(sf::st_crs(polygon)$epsg, target_crs)
+      ) {
         polygon <- sf::st_transform(polygon, target_crs)
       }
 

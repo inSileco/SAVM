@@ -17,13 +17,21 @@ app_ui <- function(request) {
       bs4Dash::dashboardSidebar(
         bs4Dash::sidebarMenu(
           id = "sidebar",
-          bs4Dash::menuItem("Welcome", tabName = "welcome", icon = icon("home")),
+          bs4Dash::menuItem(
+            "Welcome",
+            tabName = "welcome",
+            icon = icon("home")
+          ),
           br(),
           shiny::tagAppendAttributes(
             bs4Dash::menuItem(
               shiny::tagList(
                 shiny::span("1. Data Input", class = "step-label"),
-                icon("check-circle", class = "step-check", id = "check-data-input")
+                icon(
+                  "check-circle",
+                  class = "step-check",
+                  id = "check-data-input"
+                )
               ),
               tabName = "data_input",
               icon = icon("upload")
@@ -68,10 +76,22 @@ app_ui <- function(request) {
             class = "step-entry"
           ),
           br(),
-          bs4Dash::menuItem("Input table", tabName = "input_tab", icon = icon("table")),
-          bs4Dash::menuItem("Results & Visualization", tabName = "results", icon = icon("chart-line")),
+          bs4Dash::menuItem(
+            "Input table",
+            tabName = "input_tab",
+            icon = icon("table")
+          ),
+          bs4Dash::menuItem(
+            "Results & Visualization",
+            tabName = "results",
+            icon = icon("chart-line")
+          ),
           br(),
-          bs4Dash::menuItem("Help", tabName = "help", icon = icon("question-circle"))
+          bs4Dash::menuItem(
+            "Help",
+            tabName = "help",
+            icon = icon("question-circle")
+          )
         )
       ),
       bs4Dash::dashboardBody(
@@ -80,26 +100,45 @@ app_ui <- function(request) {
             tabName = "welcome",
             fluidRow(
               bs4Dash::box(
-                title = tags$span(icon("home"), " Welcome to the SAVM Shiny Application"),
+                title = tags$span(
+                  icon("home"),
+                  " Welcome to the SAVM Shiny Application"
+                ),
                 status = "primary",
                 solidHeader = TRUE,
                 width = 12,
-                p("This application provides a user-friendly interface for the SAVM (Submerged Aquatic Vegetation Model) R package (see link in ‘Help’ section). This application allows users to import spatial and tabular data, calculate fetch within a water body, and apply various models to predict the potential presence or percent coverage of SAV. See the ‘Help’ section for more information."),
+                p(
+                  "This application provides a user-friendly interface for the SAVM (Submerged Aquatic Vegetation Model) R package (see link in 'Help' section). This application allows users to import spatial and tabular data, calculate fetch within a water body, and apply various models to predict the potential presence or percent coverage of SAV. See the 'Help' section for more information."
+                ),
                 p("Follow the steps in the sidebar to:"),
                 tags$ol(
-                  tags$li("Upload/select and validate spatial data for modelling."),
+                  tags$li(
+                    "Upload/select and validate spatial data for modelling."
+                  ),
                   tags$li("Calculate wind fetch for your points (optional)."),
-                  tags$li("Extract depth for spatial points from a bathymetry raster, or apply a fixed value (optional)."),
+                  tags$li(
+                    "Extract depth for spatial points from a bathymetry raster, or apply a fixed value (optional)."
+                  ),
                   tags$li("Apply models to predict SAV presence/cover."),
-                  tags$li("Adjust model predictions based on user-defined limitations (e.g., Secchi depth)."),
+                  tags$li(
+                    "Adjust model predictions based on user-defined limitations (e.g., Secchi depth)."
+                  ),
                   tags$li("Visualize and explore results."),
-                  tags$li("Export results in various formats (.csv, GeoPackage, or Shapefile)."),
+                  tags$li(
+                    "Export results in various formats (.csv, GeoPackage, or Shapefile)."
+                  ),
                 ),
                 hr(),
                 h5("Getting Started:"),
-                p("Click on '1. Data Input' or ‘Start Analysis’ to begin working with the application, or use the sidebar navigation to jump between steps."),
+                p(
+                  "Click on '1. Data Input' or 'Start Analysis' to begin working with the application, or use the sidebar navigation to jump between steps."
+                ),
                 br(),
-                actionButton("start_btn", "Start Analysis", class = "btn-primary")
+                actionButton(
+                  "start_btn",
+                  "Start Analysis",
+                  class = "btn-primary"
+                )
               )
             )
           ),

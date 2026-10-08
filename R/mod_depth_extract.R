@@ -24,7 +24,10 @@ mod_depth_extract_ui <- function(id) {
               style = "text-align: center; padding: 20px;",
               icon("exclamation-triangle", "fa-2x", style = "color: #f39c12;"),
               h4("No Data Available", style = "color: #f39c12;"),
-              p("Please complete the Data Input step first.", style = "color: #7f8c8d;")
+              p(
+                "Please complete the Data Input step first.",
+                style = "color: #7f8c8d;"
+              )
             )
           ),
           conditionalPanel(
@@ -38,9 +41,16 @@ mod_depth_extract_ui <- function(id) {
               inline = TRUE
             ),
             conditionalPanel(
-              condition = sprintf("input['%s'] == false", ns("use_constant_depth")),
+              condition = sprintf(
+                "input['%s'] == false",
+                ns("use_constant_depth")
+              ),
               h5("Upload Bathymetry Raster"),
-              helpText(tags$span(style = "color: #6c757d;", icon("info-circle"), " Supported formats: GeoTIFF (.tif), NetCDF (.nc), ESRI Grid (.grd), ASCII (.asc).")),
+              helpText(tags$span(
+                style = "color: #6c757d;",
+                icon("info-circle"),
+                " Supported formats: GeoTIFF (.tif), NetCDF (.nc), ESRI Grid (.grd), ASCII (.asc)."
+              )),
               fileInput(
                 ns("depth_raster"),
                 "Choose Raster File:",
@@ -48,9 +58,16 @@ mod_depth_extract_ui <- function(id) {
               )
             ),
             conditionalPanel(
-              condition = sprintf("input['%s'] == true", ns("use_constant_depth")),
+              condition = sprintf(
+                "input['%s'] == true",
+                ns("use_constant_depth")
+              ),
               h5("Constant Depth Value"),
-              helpText(tags$span(style = "color: #6c757d;", icon("info-circle"), " This depth will be assigned to all points. Useful when no DEM is available.")),
+              helpText(tags$span(
+                style = "color: #6c757d;",
+                icon("info-circle"),
+                " This depth will be assigned to all points. Useful when no DEM is available."
+              )),
               numericInput(
                 ns("constant_depth_value"),
                 "Depth (meters):",
@@ -95,16 +112,25 @@ mod_depth_extract_ui <- function(id) {
           solidHeader = TRUE,
           width = NULL,
           conditionalPanel(
-            condition = sprintf("output['%s'] == false", ns("extraction_complete")),
+            condition = sprintf(
+              "output['%s'] == false",
+              ns("extraction_complete")
+            ),
             div(
               style = "text-align: center; padding: 50px;",
               icon("water", "fa-3x", style = "color: #ccc;"),
               h4("No Depth Extracted", style = "color: #ccc;"),
-              p("Upload a raster and click 'Extract Depth' to see results", style = "color: #999;")
+              p(
+                "Upload a raster and click 'Extract Depth' to see results",
+                style = "color: #999;"
+              )
             )
           ),
           conditionalPanel(
-            condition = sprintf("output['%s'] == true", ns("extraction_complete")),
+            condition = sprintf(
+              "output['%s'] == true",
+              ns("extraction_complete")
+            ),
             div(
               h4("Depth Summary"),
               htmlOutput(ns("depth_summary")),
@@ -136,7 +162,8 @@ mod_depth_extract_server <- function(id, app_data, app_session) {
       extraction_complete = FALSE
     )
 
-    observeEvent(app_data$depth_results,
+    observeEvent(
+      app_data$depth_results,
       {
         values$depth_results <- app_data$depth_results
         values$extraction_complete <- !is.null(app_data$depth_results)
@@ -161,7 +188,11 @@ mod_depth_extract_server <- function(id, app_data, app_session) {
         req(input$depth_raster)
       }
 
-      showNotification("Processing depth extraction...", type = "message", duration = 2)
+      showNotification(
+        "Processing depth extraction...",
+        type = "message",
+        duration = 2
+      )
 
       shinycssloaders::showPageSpinner(
         background = "#cccccccc",
@@ -238,7 +269,11 @@ mod_depth_extract_server <- function(id, app_data, app_session) {
         app_data$depth_extracted <- TRUE
         app_data$depth_timestamp <- Sys.time()
 
-        showNotification("Depth extraction completed successfully!", type = "message", duration = 3)
+        showNotification(
+          "Depth extraction completed successfully!",
+          type = "message",
+          duration = 3
+        )
       }
     })
 
@@ -249,7 +284,11 @@ mod_depth_extract_server <- function(id, app_data, app_session) {
       values$extraction_complete <- FALSE
       clear_calculation_results(app_data, "depth")
 
-      showNotification("Depth extraction results cleared.", type = "message", duration = 2)
+      showNotification(
+        "Depth extraction results cleared.",
+        type = "message",
+        duration = 2
+      )
     })
 
     # Output: Extraction complete flag
@@ -269,11 +308,16 @@ mod_depth_extract_server <- function(id, app_data, app_session) {
 
       tagList(
         p(strong("Points processed:"), nrow(points)),
-        p(strong("Points with depth:"), non_na_depth, sprintf("(%.1f%%)", 100 * non_na_depth / nrow(points))),
+        p(
+          strong("Points with depth:"),
+          non_na_depth,
+          sprintf("(%.1f%%)", 100 * non_na_depth / nrow(points))
+        ),
         p(strong("Mean depth:"), round(mean(depth_vals, na.rm = TRUE), 2), "m"),
         p(
           strong("Depth range:"),
-          paste(round(range(depth_vals, na.rm = TRUE), 2), collapse = " - "), "m"
+          paste(round(range(depth_vals, na.rm = TRUE), 2), collapse = " - "),
+          "m"
         )
       )
     })
@@ -284,7 +328,9 @@ mod_depth_extract_server <- function(id, app_data, app_session) {
       req(values$extraction_complete)
 
       # Convert sf to regular data frame for preview
-      depth_data <- sf::st_drop_geometry(values$depth_results$points_with_depth) |>
+      depth_data <- sf::st_drop_geometry(
+        values$depth_results$points_with_depth
+      ) |>
         dplyr::mutate(
           depth_m = round(depth_m, 3)
         ) |>

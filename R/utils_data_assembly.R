@@ -144,7 +144,11 @@ get_available_predictors <- function(app_data) {
 get_data_summary <- function(app_data) {
   summary_info <- list(
     original_loaded = !is.null(app_data$original_data),
-    n_points = if (!is.null(app_data$original_data)) nrow(app_data$original_data$points) else 0,
+    n_points = if (!is.null(app_data$original_data)) {
+      nrow(app_data$original_data$points)
+    } else {
+      0
+    },
     fetch_calculated = app_data$fetch_calculated,
     depth_extracted = app_data$depth_extracted,
     model_applied = app_data$model_applied,
@@ -178,7 +182,14 @@ validate_data_compatibility <- function(app_data) {
   if (!is.null(app_data$fetch_results)) {
     n_fetch <- nrow(app_data$fetch_results$mean_fetch)
     if (n_fetch != n_original) {
-      issues <- c(issues, sprintf("Fetch results have %d points, original has %d", n_fetch, n_original))
+      issues <- c(
+        issues,
+        sprintf(
+          "Fetch results have %d points, original has %d",
+          n_fetch,
+          n_original
+        )
+      )
     }
   }
 
@@ -186,7 +197,14 @@ validate_data_compatibility <- function(app_data) {
   if (!is.null(app_data$depth_results)) {
     n_depth <- nrow(app_data$depth_results$points_with_depth)
     if (n_depth != n_original) {
-      issues <- c(issues, sprintf("Depth results have %d points, original has %d", n_depth, n_original))
+      issues <- c(
+        issues,
+        sprintf(
+          "Depth results have %d points, original has %d",
+          n_depth,
+          n_original
+        )
+      )
     }
   }
 
@@ -203,7 +221,10 @@ validate_data_compatibility <- function(app_data) {
 #' @param app_data Reactive values object
 #' @param clear_what Character vector of what to clear ("fetch", "depth", "model")
 #' @noRd
-clear_calculation_results <- function(app_data, clear_what = c("fetch", "depth", "model")) {
+clear_calculation_results <- function(
+  app_data,
+  clear_what = c("fetch", "depth", "model")
+) {
   if ("fetch" %in% clear_what) {
     app_data$fetch_results <- NULL
     app_data$fetch_params <- NULL

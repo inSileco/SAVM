@@ -180,9 +180,16 @@
 #' )
 #' }
 sav_model <- function(
-  dat, method_pa = "rf", method_cover = method_pa, pa_threshold = 0.5,
-  depth = "depth", fetch = "fetch", substrate = "substrate", secchi = "secchi",
-  limitation = "limitation", vmax_par = list(intercept = 1.40, slope = 1.33)
+  dat,
+  method_pa = "rf",
+  method_cover = method_pa,
+  pa_threshold = 0.5,
+  depth = "depth",
+  fetch = "fetch",
+  substrate = "substrate",
+  secchi = "secchi",
+  limitation = "limitation",
+  vmax_par = list(intercept = 1.40, slope = 1.33)
 ) {
   method_pa <- match.arg(method_pa, c("rf", "lmm", "gam"))
   method_cover <- match.arg(method_cover, c("rf", "lmm", "gam"))
@@ -271,7 +278,6 @@ sav_model <- function(
     rename_if_present("^depth$", "depth_m") |>
     rename_if_present("^fetch$", "fetch_km")
 
-
   # Post-hoc
   if ("secchi" %in% names(out)) {
     out$vmax <- (vmax_par$slope * log(out$secchi) + vmax_par$intercept)^2
@@ -283,12 +289,11 @@ sav_model <- function(
       dplyr::relocate(limitation_secchi, .after = secchi)
   }
   if ("limitation" %in% names(out)) {
-    out["limitation"] <- out["limitation"] > 0
+    out$limitation <- out$limitation > 0
   }
   if ("substrate" %in% names(out)) {
-    out["substrate"] <- out["substrate"] > 0
+    out$substrate <- out$substrate > 0
   }
-
 
   out$pa_post_hoc <- out$pa_pred
   out$cover_post_hoc <- out$cover_pred

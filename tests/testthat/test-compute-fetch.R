@@ -24,7 +24,10 @@ test_that("helpers work", {
   expect_true(is_proj_unit_meter(3857))
   #
   expect_true(valid_points(le_pt))
-  expect_error(valid_points(le_bound), "Geometries in `le_bound` must be of type `POINT`")
+  expect_error(
+    valid_points(le_bound),
+    "Geometries in `le_bound` must be of type `POINT`"
+  )
   expect_true(valid_polygon(le_bound))
   expect_error(
     valid_polygon(le_pt),
@@ -121,7 +124,8 @@ test_that("compute_fetch() work", {
             "cardinal_direction",
             "transect_length",
             "rank"
-          ) %in% names(res$transect_lines)
+          ) %in%
+            names(res$transect_lines)
         )
       )
       # test with a point in the middle of the lake
@@ -150,7 +154,9 @@ test_that("compute_fetch() work with wind_weight and land polygons", {
       expect_equal(res$mean_fetch$weighted_fetch_km, 15)
       #
       v_wei <- rep(c(0, 1), each = 4) |> rep(times = 2)
-      res2 <- compute_fetch(le_pt[1L, ], le_bound_merc,
+      res2 <- compute_fetch(
+        le_pt[1L, ],
+        le_bound_merc,
         wind_weights = data.frame(
           direction = seq(0, 360, by = 22.5)[-1],
           weight = v_wei

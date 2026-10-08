@@ -42,12 +42,24 @@ mod_data_input_ui <- function(id) {
             ),
             h6(strong("Data Type:")),
             conditionalPanel(
-              condition = sprintf("input['%s'] == 'csv'", ns("data_source_type")),
-              template_download_button(ns("download_csv_template"), "Data Template"),
+              condition = sprintf(
+                "input['%s'] == 'csv'",
+                ns("data_source_type")
+              ),
+              template_download_button(
+                ns("download_csv_template"),
+                "Data Template"
+              ),
             ),
             conditionalPanel(
-              condition = sprintf("input['%s'] == 'spatial_points'", ns("data_source_type")),
-              template_download_button(ns("download_spatial_template"), "Data Template"),
+              condition = sprintf(
+                "input['%s'] == 'spatial_points'",
+                ns("data_source_type")
+              ),
+              template_download_button(
+                ns("download_spatial_template"),
+                "Data Template"
+              ),
             ),
             selectInput(
               ns("data_source_type"),
@@ -65,13 +77,28 @@ mod_data_input_ui <- function(id) {
             fileInput(
               ns("data_file"),
               NULL,
-              accept = c(".csv", ".shp", ".geojson", ".gpkg", ".cpg", ".dbf", ".prj", ".sbn", ".sbx", ".xml", ".shx"),
+              accept = c(
+                ".csv",
+                ".shp",
+                ".geojson",
+                ".gpkg",
+                ".cpg",
+                ".dbf",
+                ".prj",
+                ".sbn",
+                ".sbx",
+                ".xml",
+                ".shx"
+              ),
               multiple = TRUE
             ),
             hr(),
             # Conditional inputs based on data type
             conditionalPanel(
-              condition = sprintf("input['%s'] == 'csv'", ns("data_source_type")),
+              condition = sprintf(
+                "input['%s'] == 'csv'",
+                ns("data_source_type")
+              ),
               numericInput(
                 ns("crs_input"),
                 "Input CRS (EPSG):",
@@ -81,7 +108,10 @@ mod_data_input_ui <- function(id) {
               )
             ),
             conditionalPanel(
-              condition = sprintf("input['%s'] == 'spatial_polygon'", ns("data_source_type")),
+              condition = sprintf(
+                "input['%s'] == 'spatial_polygon'",
+                ns("data_source_type")
+              ),
               numericInput(
                 ns("grid_spacing"),
                 "Grid Spacing (meters):",
@@ -104,11 +134,21 @@ mod_data_input_ui <- function(id) {
               column(2),
               column(
                 4,
-                actionButton(ns("process_data"), "Process Data", class = "btn-primary btn-block", icon = icon("upload"))
+                actionButton(
+                  ns("process_data"),
+                  "Process Data",
+                  class = "btn-primary btn-block",
+                  icon = icon("upload")
+                )
               ),
               column(
                 4,
-                actionButton(ns("clear_data"), "Clear Data", class = "btn-danger btn-block", icon = icon("eraser"))
+                actionButton(
+                  ns("clear_data"),
+                  "Clear Data",
+                  class = "btn-danger btn-block",
+                  icon = icon("eraser")
+                )
               )
             )
           ),
@@ -145,7 +185,10 @@ mod_data_input_ui <- function(id) {
               selected = "points"
             ),
             conditionalPanel(
-              condition = sprintf("input['%s'] == 'polygon'", ns("manual_data_type")),
+              condition = sprintf(
+                "input['%s'] == 'polygon'",
+                ns("manual_data_type")
+              ),
               numericInput(
                 ns("manual_grid_spacing"),
                 "Grid Spacing (meters):",
@@ -165,7 +208,11 @@ mod_data_input_ui <- function(id) {
             crs_help_text(),
             hr(),
             h6(strong("Draw or edit features:")),
-            helpText(tags$span(style = "color: #6c757d;", icon("info-circle"), " Use the map tools to add points or polygons. Switch tools using the buttons on the map toolbar.")),
+            helpText(tags$span(
+              style = "color: #6c757d;",
+              icon("info-circle"),
+              " Use the map tools to add points or polygons. Switch tools using the buttons on the map toolbar."
+            )),
             uiOutput(ns("manual_editor_container")),
             br(),
             uiOutput(ns("manual_draw_summary")),
@@ -174,11 +221,21 @@ mod_data_input_ui <- function(id) {
               column(2),
               column(
                 4,
-                actionButton(ns("manual_process_data"), "Process Data", class = "btn-primary btn-block", icon = icon("upload"))
+                actionButton(
+                  ns("manual_process_data"),
+                  "Process Data",
+                  class = "btn-primary btn-block",
+                  icon = icon("upload")
+                )
               ),
               column(
                 4,
-                actionButton(ns("manual_clear_data"), "Clear Data", class = "btn-danger btn-block", icon = icon("eraser"))
+                actionButton(
+                  ns("manual_clear_data"),
+                  "Clear Data",
+                  class = "btn-danger btn-block",
+                  icon = icon("eraser")
+                )
               )
             )
           )
@@ -199,7 +256,10 @@ mod_data_input_ui <- function(id) {
               style = "text-align: center; padding: 50px;",
               icon("upload", "fa-3x", style = "color: #ccc;"),
               h4("No Data Loaded", style = "color: #ccc;"),
-              p("Upload a file and click 'Process Data' to see preview", style = "color: #999;")
+              p(
+                "Upload a file and click 'Process Data' to see preview",
+                style = "color: #999;"
+              )
             )
           ),
           conditionalPanel(
@@ -332,17 +392,21 @@ mod_data_input_server <- function(id, app_data, app_session) {
       values$manual_map_generation <- values$manual_map_generation + 1
     }
 
-    observeEvent(input$manual_data_type,
+    observeEvent(
+      input$manual_data_type,
       {
         reset_manual_editor()
       },
       ignoreNULL = FALSE
     )
 
-    observeEvent(manual_map_data(),
+    observeEvent(
+      manual_map_data(),
       {
         feats <- manual_map_data()
-        if (is.null(feats) || is.null(feats$finished) || nrow(feats$finished) == 0) {
+        if (
+          is.null(feats) || is.null(feats$finished) || nrow(feats$finished) == 0
+        ) {
           values$manual_features <- NULL
         } else {
           values$manual_features <- feats$finished
@@ -357,7 +421,10 @@ mod_data_input_server <- function(id, app_data, app_session) {
         return(tags$p(class = "text-muted", "No features drawn yet."))
       }
 
-      geom_types <- paste(unique(as.character(sf::st_geometry_type(feats))), collapse = ", ")
+      geom_types <- paste(
+        unique(as.character(sf::st_geometry_type(feats))),
+        collapse = ", "
+      )
       tagList(
         p(strong("Features drawn:"), nrow(feats)),
         p(strong("Geometry types:"), geom_types)
@@ -418,7 +485,10 @@ mod_data_input_server <- function(id, app_data, app_session) {
       grid <- grid[poly]
 
       if (length(grid) == 0) {
-        stop("No grid points were created inside the polygon. Try using a smaller grid spacing or draw a larger polygon.", call. = FALSE)
+        stop(
+          "No grid points were created inside the polygon. Try using a smaller grid spacing or draw a larger polygon.",
+          call. = FALSE
+        )
       }
 
       pts <- sf::st_sf(geometry = grid, crs = sf::st_crs(poly))
@@ -440,22 +510,42 @@ mod_data_input_server <- function(id, app_data, app_session) {
       drawn <- values$manual_features
 
       if (is.null(drawn)) {
-        showNotification("Draw at least one feature on the map before processing.", type = "error", duration = 4)
+        showNotification(
+          "Draw at least one feature on the map before processing.",
+          type = "error",
+          duration = 4
+        )
         return()
       }
 
       result <- tryCatch(
         {
           if (input$manual_data_type == "points") {
-            if (!all(sf::st_geometry_type(drawn) %in% c("POINT", "MULTIPOINT"))) {
-              stop("Please draw point features when 'Point Data' is selected.", call. = FALSE)
+            if (
+              !all(sf::st_geometry_type(drawn) %in% c("POINT", "MULTIPOINT"))
+            ) {
+              stop(
+                "Please draw point features when 'Point Data' is selected.",
+                call. = FALSE
+              )
             }
             prepare_manual_points(drawn, input$manual_crs_output)
           } else {
-            if (!all(sf::st_geometry_type(drawn) %in% c("POLYGON", "MULTIPOLYGON"))) {
-              stop("Please draw polygon features when 'Area of Interest' is selected.", call. = FALSE)
+            if (
+              !all(
+                sf::st_geometry_type(drawn) %in% c("POLYGON", "MULTIPOLYGON")
+              )
+            ) {
+              stop(
+                "Please draw polygon features when 'Area of Interest' is selected.",
+                call. = FALSE
+              )
             }
-            prepare_manual_polygon(drawn, input$manual_grid_spacing, input$manual_crs_output)
+            prepare_manual_polygon(
+              drawn,
+              input$manual_grid_spacing,
+              input$manual_crs_output
+            )
           }
         },
         error = function(e) {
@@ -475,7 +565,11 @@ mod_data_input_server <- function(id, app_data, app_session) {
       app_data$data_loaded <- TRUE
       clear_calculation_results(app_data, c("fetch", "depth", "model"))
 
-      showNotification("Manual data processed successfully!", type = "message", duration = 3)
+      showNotification(
+        "Manual data processed successfully!",
+        type = "message",
+        duration = 3
+      )
     })
 
     # File processing logic
@@ -488,11 +582,11 @@ mod_data_input_server <- function(id, app_data, app_session) {
       result <- tryCatch(
         {
           process_input_data(
-            file_path       = input$data_file$datapath,
-            data_type       = input$data_source_type,
-            grid_spacing    = input$grid_spacing,
-            crs_input       = input$crs_input,
-            crs_output      = input$crs_output
+            file_path = input$data_file$datapath,
+            data_type = input$data_source_type,
+            grid_spacing = input$grid_spacing,
+            crs_input = input$crs_input,
+            crs_output = input$crs_output
           )
         },
         error = function(e) {
@@ -515,9 +609,12 @@ mod_data_input_server <- function(id, app_data, app_session) {
       app_data$data_loaded <- TRUE
       clear_calculation_results(app_data, c("fetch", "depth", "model"))
 
-      showNotification("Data processed successfully!", type = "message", duration = 3)
+      showNotification(
+        "Data processed successfully!",
+        type = "message",
+        duration = 3
+      )
     })
-
 
     # Compute validation once, stored in reactiveVal
     values$validation_results <- reactiveVal(NULL)
@@ -527,7 +624,13 @@ mod_data_input_server <- function(id, app_data, app_session) {
       points_data <- values$processed_data$points
 
       required_cols <- c("longitude", "latitude")
-      optional_cols <- c("depth_m", "fetch_km", "secchi", "substrate", "limitation")
+      optional_cols <- c(
+        "depth_m",
+        "fetch_km",
+        "secchi",
+        "substrate",
+        "limitation"
+      )
 
       val <- list(
         has_required = all(required_cols %in% names(points_data)),
@@ -546,13 +649,21 @@ mod_data_input_server <- function(id, app_data, app_session) {
     observeEvent(input$clear_data, {
       reset_data_state()
       clear_manual_map()
-      showNotification("Data cleared successfully.", type = "message", duration = 2)
+      showNotification(
+        "Data cleared successfully.",
+        type = "message",
+        duration = 2
+      )
     })
 
     observeEvent(input$manual_clear_data, {
       reset_data_state()
       clear_manual_map()
-      showNotification("Manual data cleared successfully.", type = "message", duration = 2)
+      showNotification(
+        "Manual data cleared successfully.",
+        type = "message",
+        duration = 2
+      )
     })
 
     # Output: Data valid flag
@@ -598,7 +709,8 @@ mod_data_input_server <- function(id, app_data, app_session) {
         if (val$has_required) {
           p(
             icon("check", style = "color: green;"),
-            strong("Required columns present:"), "longitude, latitude"
+            strong("Required columns present:"),
+            "longitude, latitude"
           )
         } else {
           p(
@@ -656,10 +768,20 @@ mod_data_input_server <- function(id, app_data, app_session) {
       # Base map
       m <- leaflet::leaflet() |>
         leaflet::addProviderTiles("CartoDB.Positron") |>
-        leaflet::addPolygons(data = pol, fillColor = "#a1d99b", fillOpacity = 0.3, color = "#31a354", weight = 2) |>
-        leaflet::addCircleMarkers(data = pts, radius = 4, color = "#2c7fb8", fillOpacity = 0.7)
+        leaflet::addPolygons(
+          data = pol,
+          fillColor = "#a1d99b",
+          fillOpacity = 0.3,
+          color = "#31a354",
+          weight = 2
+        ) |>
+        leaflet::addCircleMarkers(
+          data = pts,
+          radius = 4,
+          color = "#2c7fb8",
+          fillOpacity = 0.7
+        )
     })
-
 
     # Download handlers for CSV and spatial template
     output$download_csv_template <- downloadHandler(
@@ -667,7 +789,12 @@ mod_data_input_server <- function(id, app_data, app_session) {
         "sav_data_template.csv"
       },
       content = function(file) {
-        template_path <- system.file("extdata", "templates", "file_input_template.csv", package = "SAVM")
+        template_path <- system.file(
+          "extdata",
+          "templates",
+          "file_input_template.csv",
+          package = "SAVM"
+        )
         file.copy(template_path, file)
       }
     )
@@ -677,7 +804,12 @@ mod_data_input_server <- function(id, app_data, app_session) {
         "sav_data_template.csv"
       },
       content = function(file) {
-        template_path <- system.file("extdata", "templates", "file_input_template.csv", package = "SAVM")
+        template_path <- system.file(
+          "extdata",
+          "templates",
+          "file_input_template.csv",
+          package = "SAVM"
+        )
         file.copy(template_path, file)
       }
     )
@@ -686,11 +818,13 @@ mod_data_input_server <- function(id, app_data, app_session) {
 
 
 # -----------------------------------------------------------------------------------------
-process_input_data <- function(file_path,
-                               data_type = c("csv", "spatial_points", "spatial_polygon"),
-                               grid_spacing = 500,
-                               crs_input = 4326,
-                               crs_output = 32617) {
+process_input_data <- function(
+  file_path,
+  data_type = c("csv", "spatial_points", "spatial_polygon"),
+  grid_spacing = 500,
+  crs_input = 4326,
+  crs_output = 32617
+) {
   data_type <- match.arg(data_type)
 
   # -------------------------------------------------------------
@@ -712,9 +846,10 @@ process_input_data <- function(file_path,
   csv_exts <- c("csv")
   spatial_exts <- c("shp", "geojson", "gpkg")
 
-  valid <- switch(data_type,
-    csv             = ext %in% csv_exts,
-    spatial_points  = ext %in% spatial_exts,
+  valid <- switch(
+    data_type,
+    csv = ext %in% csv_exts,
+    spatial_points = ext %in% spatial_exts,
     spatial_polygon = ext %in% spatial_exts,
     FALSE
   )
@@ -723,12 +858,12 @@ process_input_data <- function(file_path,
     stop(
       sprintf(
         "File type mismatch: you selected '%s' but uploaded a '.%s' file.",
-        data_type, ext
+        data_type,
+        ext
       ),
       call. = FALSE
     )
   }
-
 
   # -------------------------------------------------------------
   # Read and process data (using provided parameters directly)
@@ -736,8 +871,8 @@ process_input_data <- function(file_path,
     {
       result <- read_sav(
         file_path = file_path,
-        spacing   = grid_spacing,
-        crs       = crs_output,
+        spacing = grid_spacing,
+        crs = crs_output,
         crs_input = crs_input
       )
     },
@@ -752,7 +887,10 @@ process_input_data <- function(file_path,
 
   # Basic structural validation
   if (is.null(result$points) || nrow(result$points) == 0) {
-    stop("No point data produced - check input format or CRS parameters.", call. = FALSE)
+    stop(
+      "No point data produced - check input format or CRS parameters.",
+      call. = FALSE
+    )
   }
 
   result
@@ -804,12 +942,21 @@ crs_help_text <- function() {
       style = "color: #6c757d;",
       icon("info-circle"),
       " Coordinate Reference System. ",
-      "Common codes: ", tags$strong("4326"), " (WGS84), ",
-      tags$strong("4269"), " (NAD83), ",
-      tags$strong("32617"), " (UTM Zone 17N - Great Lakes). ",
-      tags$a("Learn more", href = "https://en.wikipedia.org/wiki/Spatial_reference_system", target = "_blank"),
+      "Common codes: ",
+      tags$strong("4326"),
+      " (WGS84), ",
+      tags$strong("4269"),
+      " (NAD83), ",
+      tags$strong("32617"),
+      " (UTM Zone 17N - Great Lakes). ",
+      tags$a(
+        "Learn more",
+        href = "https://en.wikipedia.org/wiki/Spatial_reference_system",
+        target = "_blank"
+      ),
       " or ",
-      tags$a("lookup EPSG codes", href = "https://epsg.io", target = "_blank"), "."
+      tags$a("lookup EPSG codes", href = "https://epsg.io", target = "_blank"),
+      "."
     )
   )
 }

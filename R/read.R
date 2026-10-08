@@ -53,14 +53,23 @@
 #' plot(st_geometry(tmp$polygon))
 #' plot(st_geometry(tmp$points), add = TRUE)
 #'
-read_sav <- function(file_path, spacing = 500, layer = NULL, crs = 32617, crs_input = 4326, export = NULL) {
+read_sav <- function(
+  file_path,
+  spacing = 500,
+  layer = NULL,
+  crs = 32617,
+  crs_input = 4326,
+  export = NULL
+) {
   sav_msg_info("Determining file type and processing: {file_path}")
   file_ext <- tools::file_ext(file_path)
 
   if (file_ext == "csv") {
     sav_msg_info("csv detected")
     points_sf <- read_sav_csv(file_path, crs = crs)
-    polygon_sf <- sf::st_sf(geometry = sf::st_union(points_sf) |> sf::st_convex_hull())
+    polygon_sf <- sf::st_sf(
+      geometry = sf::st_union(points_sf) |> sf::st_convex_hull()
+    )
   } else if (file_ext %in% c("shp", "geojson", "gpkg", "gbd")) {
     if (file_ext == "gbd") {
       sav_msg_info("gdb detected")
@@ -78,21 +87,37 @@ read_sav <- function(file_path, spacing = 500, layer = NULL, crs = 32617, crs_in
 
     if (all(geom_type %in% c("POINT", "MULTIPOINT"))) {
       points_sf <- read_sav_pts(file_path, crs = crs)
-      polygon_sf <- sf::st_sf(geometry = sf::st_union(points_sf) |> sf::st_convex_hull())
+      polygon_sf <- sf::st_sf(
+        geometry = sf::st_union(points_sf) |> sf::st_convex_hull()
+      )
     } else if (all(geom_type %in% c("POLYGON", "MULTIPOLYGON"))) {
       aoi_result <- read_sav_aoi(file_path, spacing, crs)
       points_sf <- aoi_result$points
       polygon_sf <- aoi_result$polygon
     } else {
-      rlang::abort("Unsupported spatial file type. Expected point or polygon geometries.")
+      rlang::abort(
+        "Unsupported spatial file type. Expected point or polygon geometries."
+      )
     }
   } else {
-    rlang::abort("Unsupported file extension. Expected csv, shp, geojson, gpkg, or gbd.")
+    rlang::abort(
+      "Unsupported file extension. Expected csv, shp, geojson, gpkg, or gbd."
+    )
   }
 
   if (!is.null(export)) {
-    sf::st_write(points_sf, file.path(export, "sav_points.gpkg"), delete_dsn = TRUE, quiet = TRUE)
-    sf::st_write(polygon_sf, file.path(export, "sav_polygon.gpkg"), delete_dsn = TRUE, quiet = TRUE)
+    sf::st_write(
+      points_sf,
+      file.path(export, "sav_points.gpkg"),
+      delete_dsn = TRUE,
+      quiet = TRUE
+    )
+    sf::st_write(
+      polygon_sf,
+      file.path(export, "sav_polygon.gpkg"),
+      delete_dsn = TRUE,
+      quiet = TRUE
+    )
     sav_msg_success("Exported outputs to {export}.")
   }
 
@@ -176,7 +201,8 @@ read_sav_csv <- function(file_path, crs = 32617, crs_input = 4326, ...) {
     sav_msg_info("Transforming spatial data.")
     sf_obj <- sf::st_transform(sf_obj, crs = sf::st_crs(crs))
     coords <- sf::st_coordinates(sf_obj)
-    sf_obj <- sf_obj |> dplyr::mutate(longitude = coords[, 1], latitude = coords[, 2])
+    sf_obj <- sf_obj |>
+      dplyr::mutate(longitude = coords[, 1], latitude = coords[, 2])
   }
 
   return(sf_obj)
@@ -234,7 +260,8 @@ read_sav_pts <- function(file_path, crs = 32617) {
 
   # Extract coordinates regardless of original CRS
   coords <- sf::st_coordinates(sf_obj)
-  sf_obj <- sf_obj |> dplyr::mutate(longitude = coords[, 1], latitude = coords[, 2])
+  sf_obj <- sf_obj |>
+    dplyr::mutate(longitude = coords[, 1], latitude = coords[, 2])
 
   # Select relevant columns
   required_cols <- c("longitude", "latitude")
@@ -290,8 +317,12 @@ read_sav_aoi <- function(file_path, spacing = 500, crs = 32617) {
     sf::st_zm()
 
   # Ensure it's a polygon
-  if (!all(sf::st_geometry_type(polygon_sf) %in% c("POLYGON", "MULTIPOLYGON"))) {
-    rlang::abort("The provided spatial file does not contain polygon geometries.")
+  if (
+    !all(sf::st_geometry_type(polygon_sf) %in% c("POLYGON", "MULTIPOLYGON"))
+  ) {
+    rlang::abort(
+      "The provided spatial file does not contain polygon geometries."
+    )
   }
 
   # Check CRS and transform if necessary
@@ -309,6 +340,8 @@ read_sav_aoi <- function(file_path, spacing = 500, crs = 32617) {
   coords <- sf::st_coordinates(grid)
   grid <- grid |> dplyr::mutate(longitude = coords[, 1], latitude = coords[, 2])
 
-  sav_msg_success("Grid of {nrow(grid)} points successfully generated from AOI.")
+  sav_msg_success(
+    "Grid of {nrow(grid)} points successfully generated from AOI."
+  )
   return(list(polygon = polygon_sf, points = grid))
 }

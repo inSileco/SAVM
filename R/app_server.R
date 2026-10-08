@@ -49,7 +49,8 @@ app_server <- function(input, output, session) {
   mod_results_viz_server("results_viz_1", app_data)
   mod_input_tab_server("input_tab_1", app_data)
 
-  observeEvent(app_data$data_loaded,
+  observeEvent(
+    app_data$data_loaded,
     {
       shinyjs::toggleClass(
         id = "check-data-input",
@@ -60,7 +61,8 @@ app_server <- function(input, output, session) {
     ignoreNULL = FALSE
   )
 
-  observeEvent(app_data$fetch_calculated,
+  observeEvent(
+    app_data$fetch_calculated,
     {
       shinyjs::toggleClass(
         id = "check-fetch",
@@ -71,7 +73,8 @@ app_server <- function(input, output, session) {
     ignoreNULL = FALSE
   )
 
-  observeEvent(app_data$depth_extracted,
+  observeEvent(
+    app_data$depth_extracted,
     {
       shinyjs::toggleClass(
         id = "check-depth",
@@ -82,7 +85,8 @@ app_server <- function(input, output, session) {
     ignoreNULL = FALSE
   )
 
-  observeEvent(app_data$model_applied,
+  observeEvent(
+    app_data$model_applied,
     {
       shinyjs::toggleClass(
         id = "check-model",

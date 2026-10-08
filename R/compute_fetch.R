@@ -105,8 +105,13 @@
 #' plot(res$transect_lines |> sf::st_geometry(), add = TRUE, col = 2, lwd = 0.5)
 #' }
 compute_fetch <- function(
-  points, polygon, max_dist = 15, n_bearings = 16, wind_weights = NULL,
-  crs = NULL, land_polygon = FALSE
+  points,
+  polygon,
+  max_dist = 15,
+  n_bearings = 16,
+  wind_weights = NULL,
+  crs = NULL,
+  land_polygon = FALSE
 ) {
   # basic validation
   valid_points(points)
@@ -114,7 +119,10 @@ compute_fetch <- function(
   valid_polygon(polygon)
   sav_stop_if_not(max_dist > 0, "`max_dist` must be strictly positive.")
   max_dist <- 1e3 * max_dist
-  sav_stop_if_not(n_bearings >= 4, "`n_bearings` should be equal or greater than 4.")
+  sav_stop_if_not(
+    n_bearings >= 4,
+    "`n_bearings` should be equal or greater than 4."
+  )
   if (n_bearings > 64) {
     sav_msg_warning(
       "Large number of bearings detected, computation may take a long time."
@@ -165,7 +173,9 @@ compute_fetch <- function(
       d_direction <- wind_weights[c("direction", "weight")]
       valid_direction(d_direction$direction)
     } else {
-      rlang::abort("`wind_weights` must include two columns names `direction` and `weight`")
+      rlang::abort(
+        "`wind_weights` must include two columns names `direction` and `weight`"
+      )
     }
   }
   d_direction <- d_direction |>
@@ -194,7 +204,9 @@ compute_fetch <- function(
 
   sav_msg_info("Creating fetch lines")
   fetch_lines <- create_fetch_lines(
-    points |> dplyr::filter(!outsider), d_direction, max_dist
+    points |> dplyr::filter(!outsider),
+    d_direction,
+    max_dist
   )
 
   sav_msg_info("Cropping fetch lines")
@@ -293,7 +305,8 @@ valid_polygon <- function(x) {
     return(TRUE)
   } else {
     paste0(
-      "Geometries in `", rlang::caller_arg(x),
+      "Geometries in `",
+      rlang::caller_arg(x),
       "` must be of type `POLYGON` or `MULTIPOLYGON`."
     ) |>
       rlang::abort()
@@ -305,7 +318,9 @@ identify_outsiders <- function(points, polygon, land_polygon = FALSE) {
     sf::st_contains(polygon, points, sparse = FALSE) |>
       apply(2, any)
   )
-  if (land_polygon) v_valid_points <- !v_valid_points
+  if (land_polygon) {
+    v_valid_points <- !v_valid_points
+  }
 
   if (!all(v_valid_points)) {
     all_out <- ifelse(all(!v_valid_points), "All", "Some")
@@ -368,11 +383,13 @@ remove_detached_ends <- function(x, points) {
   out <- list()
   for (i in unique(tmp$id_point)) {
     out[[i]] <- tmp |> dplyr::filter(id_point == i)
-    out[[i]] <- out[[i]][sf::st_intersects(
-      out[[i]],
-      points |> dplyr::filter(id_point == i),
-      sparse = FALSE
-    )[, 1L], ]
+    out[[i]] <- out[[i]][
+      sf::st_intersects(
+        out[[i]],
+        points |> dplyr::filter(id_point == i),
+        sparse = FALSE
+      )[, 1L],
+    ]
   }
   do.call(rbind, out)
 }
@@ -380,10 +397,27 @@ remove_detached_ends <- function(x, points) {
 
 angle_to_cardinal_direction <- function(x) {
   interv <- findInterval(x, seq(0, 360, by = 11.25), all.inside = TRUE)
-  card <- rep(c(
-    "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW",
-    "W", "WNW", "NW", "NNW"
-  ), each = 2)
+  card <- rep(
+    c(
+      "N",
+      "NNE",
+      "NE",
+      "ENE",
+      "E",
+      "ESE",
+      "SE",
+      "SSE",
+      "S",
+      "SSW",
+      "SW",
+      "WSW",
+      "W",
+      "WNW",
+      "NW",
+      "NNW"
+    ),
+    each = 2
+  )
   card <- c(card[-1], card[1])
   card[interv]
 }
