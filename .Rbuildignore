@@ -22,3 +22,4 @@ $run_dev.*
 ^\.rscignore$
 ^doc$
 ^Meta$
+^\.github$
