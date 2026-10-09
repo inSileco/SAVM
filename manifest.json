@@ -934,8 +934,8 @@
       "Repository": "https://cran.wu.ac.at",
       "description": {
         "Package": "colorspace",
-        "Version": "2.1-3",
-        "Date": "2026-07-10",
+        "Version": "2.1-4",
+        "Date": "2026-10-08",
         "Title": "A Toolbox for Manipulating and Assessing Colors and Palettes",
         "Authors@R": "c(person(given = \"Ross\", family = \"Ihaka\", role = \"aut\", email = \"ihaka@stat.auckland.ac.nz\"),\n             person(given = \"Paul\", family = \"Murrell\", role = \"aut\", email = \"paul@stat.auckland.ac.nz\",\n                    comment = c(ORCID = \"0000-0002-3224-8858\")),\n             person(given = \"Kurt\", family = \"Hornik\", role = \"aut\", email = \"Kurt.Hornik@R-project.org\",\n\t\t    comment = c(ORCID = \"0000-0003-4198-9911\")),\n             person(given = c(\"Jason\", \"C.\"), family = \"Fisher\", role = \"aut\", email = \"jfisher@usgs.gov\",\n                    comment = c(ORCID = \"0000-0001-9032-8912\")),\n             person(given = \"Reto\", family = \"Stauffer\", role = \"aut\", email = \"Reto.Stauffer@uibk.ac.at\",\n                    comment = c(ORCID = \"0000-0002-3798-5507\")),\n             person(given = c(\"Claus\", \"O.\"), family = \"Wilke\", role = \"aut\", email = \"wilke@austin.utexas.edu\",\n                    comment = c(ORCID = \"0000-0002-7470-9261\")),\n             person(given = c(\"Claire\", \"D.\"), family = \"McWhite\", role = \"aut\", email = \"claire.mcwhite@utmail.utexas.edu\",\n                    comment = c(ORCID = \"0000-0001-7346-3047\")),\n             person(given = \"Achim\", family = \"Zeileis\", role = c(\"aut\", \"cre\"), email = \"Achim.Zeileis@R-project.org\",\n                    comment = c(ORCID = \"0000-0003-0918-3766\")))",
         "Description": "Carries out mapping between assorted color spaces including RGB, HSV, HLS,\n             CIEXYZ, CIELUV, HCL (polar CIELUV), CIELAB, and polar CIELAB.\n\t     Qualitative, sequential, and diverging color palettes based on HCL colors\n\t     are provided along with corresponding ggplot2 color scales.\n\t     Color palette choice is aided by an interactive app (with either a Tcl/Tk\n\t     or a shiny graphical user interface) and shiny apps with an HCL color picker and a\n\t     color vision deficiency emulator. Plotting functions for displaying\n\t     and assessing palettes include color swatches, visualizations of the\n\t     HCL space, and trajectories in HCL and/or RGB spectrum. Color manipulation\n\t     functions include: desaturation, lightening/darkening, mixing, and\n\t     simulation of color vision deficiencies (deutanomaly, protanomaly, tritanomaly).\n\t     Details can be found on the project web page at <https://colorspace.R-Forge.R-project.org/>\n\t     and in the accompanying scientific paper: Zeileis et al. (2020, Journal of Statistical\n\t     Software, <doi:10.18637/jss.v096.i01>).",
@@ -944,24 +944,24 @@
         "Suggests": "datasets, utils, KernSmooth, MASS, kernlab, mvtnorm, vcd,\ntcltk, shiny, shinyjs, ggplot2, dplyr, scales, grid, png, jpeg,\nknitr, rmarkdown, RColorBrewer, rcartocolor, scico, viridis,\nwesanderson",
         "VignetteBuilder": "knitr",
         "License": "BSD_3_clause + file LICENSE",
-        "URL": "https://colorspace.R-Forge.R-project.org/, https://hclwizard.org/",
-        "BugReports": "https://colorspace.R-Forge.R-project.org/contact.html",
+        "URL": "https://zeileis.codeberg.page/colorspace/, https://hclwizard.org/",
+        "BugReports": "https://codeberg.org/zeileis/colorspace/issues",
         "LazyData": "yes",
         "Encoding": "UTF-8",
         "RoxygenNote": "7.3.2",
         "NeedsCompilation": "yes",
-        "Packaged": "2026-07-10 13:51:25 UTC; zeileis",
+        "Packaged": "2026-10-08 01:54:02 UTC; zeileis",
         "Author": "Ross Ihaka [aut],\n  Paul Murrell [aut] (ORCID: <https://orcid.org/0000-0002-3224-8858>),\n  Kurt Hornik [aut] (ORCID: <https://orcid.org/0000-0003-4198-9911>),\n  Jason C. Fisher [aut] (ORCID: <https://orcid.org/0000-0001-9032-8912>),\n  Reto Stauffer [aut] (ORCID: <https://orcid.org/0000-0002-3798-5507>),\n  Claus O. Wilke [aut] (ORCID: <https://orcid.org/0000-0002-7470-9261>),\n  Claire D. McWhite [aut] (ORCID:\n    <https://orcid.org/0000-0001-7346-3047>),\n  Achim Zeileis [aut, cre] (ORCID:\n    <https://orcid.org/0000-0003-0918-3766>)",
         "Maintainer": "Achim Zeileis <Achim.Zeileis@R-project.org>",
         "Repository": "CRAN",
-        "Date/Publication": "2026-07-12 07:20:02 UTC",
-        "Built": "R 4.6.1; x86_64-pc-linux-gnu; 2026-08-03 16:33:49 UTC; unix",
+        "Date/Publication": "2026-10-08 07:50:16 UTC",
+        "Built": "R 4.6.1; x86_64-pc-linux-gnu; 2026-10-08 20:08:54 UTC; unix",
         "RemoteType": "standard",
         "RemotePkgRef": "colorspace",
         "RemoteRef": "colorspace",
         "RemoteRepos": "https://cran.wu.ac.at",
         "RemotePkgPlatform": "source",
-        "RemoteSha": "2.1-3"
+        "RemoteSha": "2.1-4"
       }
     },
     "cols4all": {
@@ -1206,7 +1206,7 @@
       "Repository": "https://cran.wu.ac.at",
       "description": {
         "Package": "data.table",
-        "Version": "1.18.4",
+        "Version": "1.18.6.1",
         "Title": "Extension of `data.frame`",
         "Depends": "R (>= 3.4.0)",
         "Imports": "methods",
@@ -1218,20 +1218,20 @@
         "VignetteBuilder": "knitr",
         "Encoding": "UTF-8",
         "ByteCompile": "TRUE",
-        "Authors@R": "c(\n  person(\"Tyson\",\"Barrett\",        role=c(\"aut\",\"cre\"), email=\"t.barrett88@gmail.com\", comment = c(ORCID=\"0000-0002-2137-1391\")),\n  person(\"Matt\",\"Dowle\",           role=\"aut\",          email=\"mattjdowle@gmail.com\"),\n  person(\"Arun\",\"Srinivasan\",      role=\"aut\",          email=\"asrini@pm.me\"),\n  person(\"Jan\",\"Gorecki\",          role=\"aut\",          email=\"j.gorecki@wit.edu.pl\"),\n  person(\"Michael\",\"Chirico\",      role=\"aut\",          email=\"michaelchirico4@gmail.com\", comment = c(ORCID=\"0000-0003-0787-087X\")),\n  person(\"Toby\",\"Hocking\",         role=\"aut\",          email=\"toby.hocking@r-project.org\", comment = c(ORCID=\"0000-0002-3146-0865\")),\n  person(\"Benjamin\",\"Schwendinger\",role=\"aut\", comment = c(ORCID=\"0000-0003-3315-8114\")),\n  person(\"Ivan\", \"Krylov\",         role=\"aut\",          email=\"ikrylov@disroot.org\",   comment = c(ORCID=\"0000-0002-0172-3812\")),\n  person(\"Pasha\",\"Stetsenko\",      role=\"ctb\"),\n  person(\"Tom\",\"Short\",            role=\"ctb\"),\n  person(\"Steve\",\"Lianoglou\",      role=\"ctb\"),\n  person(\"Eduard\",\"Antonyan\",      role=\"ctb\"),\n  person(\"Markus\",\"Bonsch\",        role=\"ctb\"),\n  person(\"Hugh\",\"Parsonage\",       role=\"ctb\"),\n  person(\"Scott\",\"Ritchie\",        role=\"ctb\"),\n  person(\"Kun\",\"Ren\",              role=\"ctb\"),\n  person(\"Xianying\",\"Tan\",         role=\"ctb\"),\n  person(\"Rick\",\"Saporta\",         role=\"ctb\"),\n  person(\"Otto\",\"Seiskari\",        role=\"ctb\"),\n  person(\"Xianghui\",\"Dong\",        role=\"ctb\"),\n  person(\"Michel\",\"Lang\",          role=\"ctb\"),\n  person(\"Watal\",\"Iwasaki\",        role=\"ctb\"),\n  person(\"Seth\",\"Wenchel\",         role=\"ctb\"),\n  person(\"Karl\",\"Broman\",          role=\"ctb\"),\n  person(\"Tobias\",\"Schmidt\",       role=\"ctb\"),\n  person(\"David\",\"Arenburg\",       role=\"ctb\"),\n  person(\"Ethan\",\"Smith\",          role=\"ctb\"),\n  person(\"Francois\",\"Cocquemas\",   role=\"ctb\"),\n  person(\"Matthieu\",\"Gomez\",       role=\"ctb\"),\n  person(\"Philippe\",\"Chataignon\",  role=\"ctb\"),\n  person(\"Nello\",\"Blaser\",         role=\"ctb\"),\n  person(\"Dmitry\",\"Selivanov\",     role=\"ctb\"),\n  person(\"Andrey\",\"Riabushenko\",   role=\"ctb\"),\n  person(\"Cheng\",\"Lee\",            role=\"ctb\"),\n  person(\"Declan\",\"Groves\",        role=\"ctb\"),\n  person(\"Daniel\",\"Possenriede\",   role=\"ctb\"),\n  person(\"Felipe\",\"Parages\",       role=\"ctb\"),\n  person(\"Denes\",\"Toth\",           role=\"ctb\"),\n  person(\"Mus\",\"Yaramaz-David\",    role=\"ctb\"),\n  person(\"Ayappan\",\"Perumal\",      role=\"ctb\"),\n  person(\"James\",\"Sams\",           role=\"ctb\"),\n  person(\"Martin\",\"Morgan\",        role=\"ctb\"),\n  person(\"Michael\",\"Quinn\",        role=\"ctb\"),\n  person(given=\"@javrucebo\",       role=\"ctb\", comment=\"GitHub user\"),\n  person(\"Marc\",\"Halperin\",        role=\"ctb\"),\n  person(\"Roy\",\"Storey\",           role=\"ctb\"),\n  person(\"Manish\",\"Saraswat\",      role=\"ctb\"),\n  person(\"Morgan\",\"Jacob\",         role=\"ctb\"),\n  person(\"Michael\",\"Schubmehl\",    role=\"ctb\"),\n  person(\"Davis\",\"Vaughan\",        role=\"ctb\"),\n  person(\"Leonardo\",\"Silvestri\",   role=\"ctb\"),\n  person(\"Jim\",\"Hester\",           role=\"ctb\"),\n  person(\"Anthony\",\"Damico\",       role=\"ctb\"),\n  person(\"Sebastian\",\"Freundt\",    role=\"ctb\"),\n  person(\"David\",\"Simons\",         role=\"ctb\"),\n  person(\"Elliott\",\"Sales de Andrade\", role=\"ctb\"),\n  person(\"Cole\",\"Miller\",          role=\"ctb\"),\n  person(\"Jens Peder\",\"Meldgaard\", role=\"ctb\"),\n  person(\"Vaclav\",\"Tlapak\",        role=\"ctb\"),\n  person(\"Kevin\",\"Ushey\",          role=\"ctb\"),\n  person(\"Dirk\",\"Eddelbuettel\",    role=\"ctb\"),\n  person(\"Tony\",\"Fischetti\",       role=\"ctb\"),\n  person(\"Ofek\",\"Shilon\",          role=\"ctb\"),\n  person(\"Vadim\",\"Khotilovich\",    role=\"ctb\"),\n  person(\"Hadley\",\"Wickham\",       role=\"ctb\"),\n  person(\"Bennet\",\"Becker\",        role=\"ctb\"),\n  person(\"Kyle\",\"Haynes\",          role=\"ctb\"),\n  person(\"Boniface Christian\",\"Kamgang\", role=\"ctb\"),\n  person(\"Olivier\",\"Delmarcell\",   role=\"ctb\"),\n  person(\"Josh\",\"O'Brien\",         role=\"ctb\"),\n  person(\"Dereck\",\"de Mezquita\",   role=\"ctb\"),\n  person(\"Michael\",\"Czekanski\",    role=\"ctb\"),\n  person(\"Dmitry\", \"Shemetov\",     role=\"ctb\"),\n  person(\"Nitish\", \"Jha\",          role=\"ctb\"),\n  person(\"Joshua\", \"Wu\",           role=\"ctb\"),\n  person(\"Iago\", \"Giné-Vázquez\",   role=\"ctb\"),\n  person(\"Anirban\", \"Chetia\",      role=\"ctb\"),\n  person(\"Doris\", \"Amoakohene\",    role=\"ctb\"),\n  person(\"Angel\", \"Feliz\",         role=\"ctb\"),\n  person(\"Michael\",\"Young\",        role=\"ctb\"),\n  person(\"Mark\", \"Seeto\",          role=\"ctb\"),\n  person(\"Philippe\", \"Grosjean\",   role=\"ctb\"),\n  person(\"Vincent\", \"Runge\",       role=\"ctb\"),\n  person(\"Christian\", \"Wia\",       role=\"ctb\"),\n  person(\"Elise\", \"Maigné\",        role=\"ctb\"),\n  person(\"Vincent\", \"Rocher\",      role=\"ctb\"),\n  person(\"Vijay\", \"Lulla\",         role=\"ctb\"),\n  person(\"Aljaž\", \"Sluga\",         role=\"ctb\"),\n  person(\"Bill\", \"Evans\",          role=\"ctb\"),\n  person(\"Reino\", \"Bruner\",        role=\"ctb\"),\n  person(given=\"@badasahog\",       role=\"ctb\", comment=\"GitHub user\"),\n  person(\"Vinit\", \"Thakur\",        role=\"ctb\"),\n  person(\"Mukul\", \"Kumar\",         role=\"ctb\"),\n  person(\"Ildikó\", \"Czeller\",      role=\"ctb\"),\n  person(\"Manmita\", \"Das\",         role=\"ctb\"),\n  person(\"Tarun\", \"Thammisetty\",   role=\"ctb\")\n  )",
+        "Authors@R": "c(\n  person(\"Tyson\",\"Barrett\",        role=c(\"aut\",\"cre\"), email=\"t.barrett88@gmail.com\", comment = c(ORCID=\"0000-0002-2137-1391\")),\n  person(\"Matt\",\"Dowle\",           role=\"aut\",          email=\"mattjdowle@gmail.com\"),\n  person(\"Arun\",\"Srinivasan\",      role=\"aut\",          email=\"asrini@pm.me\"),\n  person(\"Jan\",\"Gorecki\",          role=\"aut\",          email=\"j.gorecki@wit.edu.pl\"),\n  person(\"Michael\",\"Chirico\",      role=\"aut\",          email=\"michaelchirico4@gmail.com\", comment = c(ORCID=\"0000-0003-0787-087X\")),\n  person(\"Toby\",\"Hocking\",         role=\"aut\",          email=\"toby.hocking@r-project.org\", comment = c(ORCID=\"0000-0002-3146-0865\")),\n  person(\"Benjamin\",\"Schwendinger\",role=\"aut\", comment = c(ORCID=\"0000-0003-3315-8114\")),\n  person(\"Ivan\", \"Krylov\",         role=\"aut\",          email=\"ikrylov@disroot.org\",   comment = c(ORCID=\"0000-0002-0172-3812\")),\n  person(\"Pasha\",\"Stetsenko\",      role=\"ctb\"),\n  person(\"Tom\",\"Short\",            role=\"ctb\"),\n  person(\"Steve\",\"Lianoglou\",      role=\"ctb\"),\n  person(\"Eduard\",\"Antonyan\",      role=\"ctb\"),\n  person(\"Markus\",\"Bonsch\",        role=\"ctb\"),\n  person(\"Hugh\",\"Parsonage\",       role=\"ctb\"),\n  person(\"Scott\",\"Ritchie\",        role=\"ctb\"),\n  person(\"Kun\",\"Ren\",              role=\"ctb\"),\n  person(\"Xianying\",\"Tan\",         role=\"ctb\"),\n  person(\"Rick\",\"Saporta\",         role=\"ctb\"),\n  person(\"Otto\",\"Seiskari\",        role=\"ctb\"),\n  person(\"Xianghui\",\"Dong\",        role=\"ctb\"),\n  person(\"Michel\",\"Lang\",          role=\"ctb\"),\n  person(\"Watal\",\"Iwasaki\",        role=\"ctb\"),\n  person(\"Seth\",\"Wenchel\",         role=\"ctb\"),\n  person(\"Karl\",\"Broman\",          role=\"ctb\"),\n  person(\"Tobias\",\"Schmidt\",       role=\"ctb\"),\n  person(\"David\",\"Arenburg\",       role=\"ctb\"),\n  person(\"Ethan\",\"Smith\",          role=\"ctb\"),\n  person(\"Francois\",\"Cocquemas\",   role=\"ctb\"),\n  person(\"Matthieu\",\"Gomez\",       role=\"ctb\"),\n  person(\"Philippe\",\"Chataignon\",  role=\"ctb\"),\n  person(\"Nello\",\"Blaser\",         role=\"ctb\"),\n  person(\"Dmitry\",\"Selivanov\",     role=\"ctb\"),\n  person(\"Andrey\",\"Riabushenko\",   role=\"ctb\"),\n  person(\"Cheng\",\"Lee\",            role=\"ctb\"),\n  person(\"Declan\",\"Groves\",        role=\"ctb\"),\n  person(\"Daniel\",\"Possenriede\",   role=\"ctb\"),\n  person(\"Felipe\",\"Parages\",       role=\"ctb\"),\n  person(\"Denes\",\"Toth\",           role=\"ctb\"),\n  person(\"Mus\",\"Yaramaz-David\",    role=\"ctb\"),\n  person(\"Ayappan\",\"Perumal\",      role=\"ctb\"),\n  person(\"James\",\"Sams\",           role=\"ctb\"),\n  person(\"Martin\",\"Morgan\",        role=\"ctb\"),\n  person(\"Michael\",\"Quinn\",        role=\"ctb\"),\n  person(given=\"@javrucebo\",       role=\"ctb\", comment=\"GitHub user\"),\n  person(\"Marc\",\"Halperin\",        role=\"ctb\"),\n  person(\"Roy\",\"Storey\",           role=\"ctb\"),\n  person(\"Manish\",\"Saraswat\",      role=\"ctb\"),\n  person(\"Morgan\",\"Jacob\",         role=\"ctb\"),\n  person(\"Michael\",\"Schubmehl\",    role=\"ctb\"),\n  person(\"Davis\",\"Vaughan\",        role=\"ctb\"),\n  person(\"Leonardo\",\"Silvestri\",   role=\"ctb\"),\n  person(\"Jim\",\"Hester\",           role=\"ctb\"),\n  person(\"Anthony\",\"Damico\",       role=\"ctb\"),\n  person(\"Sebastian\",\"Freundt\",    role=\"ctb\"),\n  person(\"David\",\"Simons\",         role=\"ctb\"),\n  person(\"Elliott\",\"Sales de Andrade\", role=\"ctb\"),\n  person(\"Cole\",\"Miller\",          role=\"ctb\"),\n  person(\"Jens Peder\",\"Meldgaard\", role=\"ctb\"),\n  person(\"Vaclav\",\"Tlapak\",        role=\"ctb\"),\n  person(\"Kevin\",\"Ushey\",          role=\"ctb\"),\n  person(\"Dirk\",\"Eddelbuettel\",    role=\"ctb\"),\n  person(\"Tony\",\"Fischetti\",       role=\"ctb\"),\n  person(\"Ofek\",\"Shilon\",          role=\"ctb\"),\n  person(\"Vadim\",\"Khotilovich\",    role=\"ctb\"),\n  person(\"Hadley\",\"Wickham\",       role=\"ctb\"),\n  person(\"Bennet\",\"Becker\",        role=\"ctb\"),\n  person(\"Kyle\",\"Haynes\",          role=\"ctb\"),\n  person(\"Boniface Christian\",\"Kamgang\", role=\"ctb\"),\n  person(\"Olivier\",\"Delmarcell\",   role=\"ctb\"),\n  person(\"Josh\",\"O'Brien\",         role=\"ctb\"),\n  person(\"Dereck\",\"Mezquita\",      role=\"ctb\", comment = c(ORCID=\"0000-0002-9307-6762\")),\n  person(\"Michael\",\"Czekanski\",    role=\"ctb\"),\n  person(\"Dmitry\", \"Shemetov\",     role=\"ctb\"),\n  person(\"Nitish\", \"Jha\",          role=\"ctb\"),\n  person(\"Joshua\", \"Wu\",           role=\"ctb\"),\n  person(\"Iago\", \"Giné-Vázquez\",   role=\"ctb\"),\n  person(\"Anirban\", \"Chetia\",      role=\"ctb\"),\n  person(\"Doris\", \"Amoakohene\",    role=\"ctb\"),\n  person(\"Angel\", \"Feliz\",         role=\"ctb\"),\n  person(\"Michael\",\"Young\",        role=\"ctb\"),\n  person(\"Mark\", \"Seeto\",          role=\"ctb\"),\n  person(\"Philippe\", \"Grosjean\",   role=\"ctb\"),\n  person(\"Vincent\", \"Runge\",       role=\"ctb\"),\n  person(\"Christian\", \"Wia\",       role=\"ctb\"),\n  person(\"Elise\", \"Maigné\",        role=\"ctb\"),\n  person(\"Vincent\", \"Rocher\",      role=\"ctb\"),\n  person(\"Vijay\", \"Lulla\",         role=\"ctb\"),\n  person(\"Aljaž\", \"Sluga\",         role=\"ctb\"),\n  person(\"Bill\", \"Evans\",          role=\"ctb\"),\n  person(\"Reino\", \"Bruner\",        role=\"ctb\"),\n  person(given=\"@badasahog\",       role=\"ctb\", comment=\"GitHub user\"),\n  person(\"Vinit\", \"Thakur\",        role=\"ctb\"),\n  person(\"Mukul\", \"Kumar\",         role=\"ctb\"),\n  person(\"Ildikó\", \"Czeller\",      role=\"ctb\"),\n  person(\"Manmita\", \"Das\",         role=\"ctb\"),\n  person(\"Tarun\", \"Thammisetty\",   role=\"ctb\"),\n  person(\"Marco\", \"Colombo\",       role=\"ctb\", comment = c(ORCID = \"0000-0001-6672-0623\")),\n  person(\"Tim\", \"Taylor\",          role=\"ctb\", comment = c(ORCID = \"0000-0002-8587-7113\"))\n  )",
         "NeedsCompilation": "yes",
-        "Packaged": "2026-05-05 05:46:53 UTC; a00932230",
-        "Author": "Tyson Barrett [aut, cre] (ORCID:\n    <https://orcid.org/0000-0002-2137-1391>),\n  Matt Dowle [aut],\n  Arun Srinivasan [aut],\n  Jan Gorecki [aut],\n  Michael Chirico [aut] (ORCID: <https://orcid.org/0000-0003-0787-087X>),\n  Toby Hocking [aut] (ORCID: <https://orcid.org/0000-0002-3146-0865>),\n  Benjamin Schwendinger [aut] (ORCID:\n    <https://orcid.org/0000-0003-3315-8114>),\n  Ivan Krylov [aut] (ORCID: <https://orcid.org/0000-0002-0172-3812>),\n  Pasha Stetsenko [ctb],\n  Tom Short [ctb],\n  Steve Lianoglou [ctb],\n  Eduard Antonyan [ctb],\n  Markus Bonsch [ctb],\n  Hugh Parsonage [ctb],\n  Scott Ritchie [ctb],\n  Kun Ren [ctb],\n  Xianying Tan [ctb],\n  Rick Saporta [ctb],\n  Otto Seiskari [ctb],\n  Xianghui Dong [ctb],\n  Michel Lang [ctb],\n  Watal Iwasaki [ctb],\n  Seth Wenchel [ctb],\n  Karl Broman [ctb],\n  Tobias Schmidt [ctb],\n  David Arenburg [ctb],\n  Ethan Smith [ctb],\n  Francois Cocquemas [ctb],\n  Matthieu Gomez [ctb],\n  Philippe Chataignon [ctb],\n  Nello Blaser [ctb],\n  Dmitry Selivanov [ctb],\n  Andrey Riabushenko [ctb],\n  Cheng Lee [ctb],\n  Declan Groves [ctb],\n  Daniel Possenriede [ctb],\n  Felipe Parages [ctb],\n  Denes Toth [ctb],\n  Mus Yaramaz-David [ctb],\n  Ayappan Perumal [ctb],\n  James Sams [ctb],\n  Martin Morgan [ctb],\n  Michael Quinn [ctb],\n  @javrucebo [ctb] (GitHub user),\n  Marc Halperin [ctb],\n  Roy Storey [ctb],\n  Manish Saraswat [ctb],\n  Morgan Jacob [ctb],\n  Michael Schubmehl [ctb],\n  Davis Vaughan [ctb],\n  Leonardo Silvestri [ctb],\n  Jim Hester [ctb],\n  Anthony Damico [ctb],\n  Sebastian Freundt [ctb],\n  David Simons [ctb],\n  Elliott Sales de Andrade [ctb],\n  Cole Miller [ctb],\n  Jens Peder Meldgaard [ctb],\n  Vaclav Tlapak [ctb],\n  Kevin Ushey [ctb],\n  Dirk Eddelbuettel [ctb],\n  Tony Fischetti [ctb],\n  Ofek Shilon [ctb],\n  Vadim Khotilovich [ctb],\n  Hadley Wickham [ctb],\n  Bennet Becker [ctb],\n  Kyle Haynes [ctb],\n  Boniface Christian Kamgang [ctb],\n  Olivier Delmarcell [ctb],\n  Josh O'Brien [ctb],\n  Dereck de Mezquita [ctb],\n  Michael Czekanski [ctb],\n  Dmitry Shemetov [ctb],\n  Nitish Jha [ctb],\n  Joshua Wu [ctb],\n  Iago Giné-Vázquez [ctb],\n  Anirban Chetia [ctb],\n  Doris Amoakohene [ctb],\n  Angel Feliz [ctb],\n  Michael Young [ctb],\n  Mark Seeto [ctb],\n  Philippe Grosjean [ctb],\n  Vincent Runge [ctb],\n  Christian Wia [ctb],\n  Elise Maigné [ctb],\n  Vincent Rocher [ctb],\n  Vijay Lulla [ctb],\n  Aljaž Sluga [ctb],\n  Bill Evans [ctb],\n  Reino Bruner [ctb],\n  @badasahog [ctb] (GitHub user),\n  Vinit Thakur [ctb],\n  Mukul Kumar [ctb],\n  Ildikó Czeller [ctb],\n  Manmita Das [ctb],\n  Tarun Thammisetty [ctb]",
+        "Packaged": "2026-08-22 18:37:47 UTC; a00932230",
+        "Author": "Tyson Barrett [aut, cre] (ORCID:\n    <https://orcid.org/0000-0002-2137-1391>),\n  Matt Dowle [aut],\n  Arun Srinivasan [aut],\n  Jan Gorecki [aut],\n  Michael Chirico [aut] (ORCID: <https://orcid.org/0000-0003-0787-087X>),\n  Toby Hocking [aut] (ORCID: <https://orcid.org/0000-0002-3146-0865>),\n  Benjamin Schwendinger [aut] (ORCID:\n    <https://orcid.org/0000-0003-3315-8114>),\n  Ivan Krylov [aut] (ORCID: <https://orcid.org/0000-0002-0172-3812>),\n  Pasha Stetsenko [ctb],\n  Tom Short [ctb],\n  Steve Lianoglou [ctb],\n  Eduard Antonyan [ctb],\n  Markus Bonsch [ctb],\n  Hugh Parsonage [ctb],\n  Scott Ritchie [ctb],\n  Kun Ren [ctb],\n  Xianying Tan [ctb],\n  Rick Saporta [ctb],\n  Otto Seiskari [ctb],\n  Xianghui Dong [ctb],\n  Michel Lang [ctb],\n  Watal Iwasaki [ctb],\n  Seth Wenchel [ctb],\n  Karl Broman [ctb],\n  Tobias Schmidt [ctb],\n  David Arenburg [ctb],\n  Ethan Smith [ctb],\n  Francois Cocquemas [ctb],\n  Matthieu Gomez [ctb],\n  Philippe Chataignon [ctb],\n  Nello Blaser [ctb],\n  Dmitry Selivanov [ctb],\n  Andrey Riabushenko [ctb],\n  Cheng Lee [ctb],\n  Declan Groves [ctb],\n  Daniel Possenriede [ctb],\n  Felipe Parages [ctb],\n  Denes Toth [ctb],\n  Mus Yaramaz-David [ctb],\n  Ayappan Perumal [ctb],\n  James Sams [ctb],\n  Martin Morgan [ctb],\n  Michael Quinn [ctb],\n  @javrucebo [ctb] (GitHub user),\n  Marc Halperin [ctb],\n  Roy Storey [ctb],\n  Manish Saraswat [ctb],\n  Morgan Jacob [ctb],\n  Michael Schubmehl [ctb],\n  Davis Vaughan [ctb],\n  Leonardo Silvestri [ctb],\n  Jim Hester [ctb],\n  Anthony Damico [ctb],\n  Sebastian Freundt [ctb],\n  David Simons [ctb],\n  Elliott Sales de Andrade [ctb],\n  Cole Miller [ctb],\n  Jens Peder Meldgaard [ctb],\n  Vaclav Tlapak [ctb],\n  Kevin Ushey [ctb],\n  Dirk Eddelbuettel [ctb],\n  Tony Fischetti [ctb],\n  Ofek Shilon [ctb],\n  Vadim Khotilovich [ctb],\n  Hadley Wickham [ctb],\n  Bennet Becker [ctb],\n  Kyle Haynes [ctb],\n  Boniface Christian Kamgang [ctb],\n  Olivier Delmarcell [ctb],\n  Josh O'Brien [ctb],\n  Dereck Mezquita [ctb] (ORCID: <https://orcid.org/0000-0002-9307-6762>),\n  Michael Czekanski [ctb],\n  Dmitry Shemetov [ctb],\n  Nitish Jha [ctb],\n  Joshua Wu [ctb],\n  Iago Giné-Vázquez [ctb],\n  Anirban Chetia [ctb],\n  Doris Amoakohene [ctb],\n  Angel Feliz [ctb],\n  Michael Young [ctb],\n  Mark Seeto [ctb],\n  Philippe Grosjean [ctb],\n  Vincent Runge [ctb],\n  Christian Wia [ctb],\n  Elise Maigné [ctb],\n  Vincent Rocher [ctb],\n  Vijay Lulla [ctb],\n  Aljaž Sluga [ctb],\n  Bill Evans [ctb],\n  Reino Bruner [ctb],\n  @badasahog [ctb] (GitHub user),\n  Vinit Thakur [ctb],\n  Mukul Kumar [ctb],\n  Ildikó Czeller [ctb],\n  Manmita Das [ctb],\n  Tarun Thammisetty [ctb],\n  Marco Colombo [ctb] (ORCID: <https://orcid.org/0000-0001-6672-0623>),\n  Tim Taylor [ctb] (ORCID: <https://orcid.org/0000-0002-8587-7113>)",
         "Maintainer": "Tyson Barrett <t.barrett88@gmail.com>",
         "Repository": "CRAN",
-        "Date/Publication": "2026-05-06 05:10:20 UTC",
-        "Built": "R 4.6.1; x86_64-pc-linux-gnu; 2026-08-03 15:04:51 UTC; unix",
+        "Date/Publication": "2026-08-24 08:40:13 UTC",
+        "Built": "R 4.6.1; x86_64-pc-linux-gnu; 2026-10-08 20:08:58 UTC; unix",
         "RemoteType": "standard",
         "RemotePkgRef": "data.table",
         "RemoteRef": "data.table",
         "RemoteRepos": "https://cran.wu.ac.at",
         "RemotePkgPlatform": "source",
-        "RemoteSha": "1.18.4"
+        "RemoteSha": "1.18.6.1"
       }
     },
     "desc": {
@@ -4240,7 +4240,7 @@
       "description": {
         "Package": "s2",
         "Title": "Spherical Geometry Operators Using the S2 Geometry Library",
-        "Version": "1.1.12",
+        "Version": "1.1.13",
         "Authors@R": "c(\n     person(given = \"Dewey\",\n           family = \"Dunnington\",\n           role = c(\"aut\"),\n           email = \"dewey@fishandwhistle.net\",\n           comment = c(ORCID = \"0000-0002-9415-4582\")),\n     person(given = \"Edzer\",\n             family = \"Pebesma\",\n             role = c(\"aut\", \"cre\"),\n             email = \"edzer.pebesma@uni-muenster.de\",\n             comment = c(ORCID = \"0000-0001-8049-7069\")),\n    person(\"Ege\", \"Rubak\", email=\"rubak@math.aau.dk\", role = c(\"aut\")),\n    person(\"Jeroen\", \"Ooms\", , \"jeroen.ooms@stat.ucla.edu\", role = \"ctb\", comment = \"configure script\"),\n    person(family = \"Google, Inc.\", role = \"cph\", comment = \"Original s2geometry.io source code\")\n  )",
         "Description": "Provides R bindings for Google's s2 library for geometric calculations on\n    the sphere. High-performance constructors and exporters provide high compatibility\n    with existing spatial packages, transformers construct new geometries from existing\n    geometries, predicates provide a means to select geometries based on spatial\n    relationships, and accessors extract information about geometries.",
         "License": "Apache License (== 2.0)",
@@ -4256,18 +4256,18 @@
         "Config/testthat/edition": "3",
         "Config/roxygen2/version": "8.0.0",
         "NeedsCompilation": "yes",
-        "Packaged": "2026-09-03 07:29:53 UTC; edzer",
+        "Packaged": "2026-09-28 07:24:41 UTC; edzer",
         "Author": "Dewey Dunnington [aut] (ORCID: <https://orcid.org/0000-0002-9415-4582>),\n  Edzer Pebesma [aut, cre] (ORCID:\n    <https://orcid.org/0000-0001-8049-7069>),\n  Ege Rubak [aut],\n  Jeroen Ooms [ctb] (configure script),\n  Google, Inc. [cph] (Original s2geometry.io source code)",
         "Maintainer": "Edzer Pebesma <edzer.pebesma@uni-muenster.de>",
         "Repository": "CRAN",
-        "Date/Publication": "2026-09-03 09:30:02 UTC",
-        "Built": "R 4.6.1; x86_64-pc-linux-gnu; 2026-09-10 15:38:40 UTC; unix",
+        "Date/Publication": "2026-09-28 08:30:02 UTC",
+        "Built": "R 4.6.1; x86_64-pc-linux-gnu; 2026-10-08 20:10:34 UTC; unix",
         "RemoteType": "standard",
         "RemotePkgRef": "s2",
         "RemoteRef": "s2",
         "RemoteRepos": "https://cran.wu.ac.at",
         "RemotePkgPlatform": "source",
-        "RemoteSha": "1.1.12"
+        "RemoteSha": "1.1.13"
       }
     },
     "sass": {
@@ -5859,16 +5859,16 @@
       "checksum": "5ea2bb592a2aaec6d50cbaceaf4a0ab5"
     },
     ".Rbuildignore": {
-      "checksum": "9cc3030429d3ec5f4a285bc84e55bd4e"
+      "checksum": "4b72e8a53925a650da82943d201b3552"
     },
-    ".vscode/settings.json": {
-      "checksum": "f4c174d9ce768b54e1d17652c6c619be"
+    ".renvignore": {
+      "checksum": "e35b90b0907d05a454260fe73d46f5c1"
     },
     "app.R": {
       "checksum": "37fe603c77faff0c4e23bc1e358c9bb9"
     },
     "DESCRIPTION": {
-      "checksum": "686afde866417d9ffedc936b313f683a"
+      "checksum": "08279a8a2ef19c3dbc8252fd15b18cc2"
     },
     "dev/run_dev.R": {
       "checksum": "dbe93f975d51ef6c92ce5f067b2dcbfc"
@@ -6621,7 +6621,7 @@
       "checksum": "b1ae97819a7be78231abbb6ed080ed67"
     },
     "NEWS.md": {
-      "checksum": "70cf814b1741ace6f21fcd6f5c6619a4"
+      "checksum": "37ad6dcc866404ecdc0947ffd87b3717"
     },
     "pkgdown/favicon/apple-touch-icon.png": {
       "checksum": "67fca66449d2ea52d5692d308cc9773b"
@@ -6654,7 +6654,7 @@
       "checksum": "57670aed586e52479eb68292e6312777"
     },
     "R/app_ui.R": {
-      "checksum": "4b15dfe648c368385db33d14a33b4192"
+      "checksum": "adeb281f420250916548b1f534719ff5"
     },
     "R/compute_fetch.R": {
       "checksum": "7895580b94fca57d5a81df3c4977f37a"
@@ -6663,13 +6663,13 @@
       "checksum": "18767fff6bbff1a2557f0385b0544d1f"
     },
     "R/mod_data_input.R": {
-      "checksum": "57157b86354532bdac88d17d1c50b88e"
+      "checksum": "4c20ba52f40e59500645f89e8136776a"
     },
     "R/mod_depth_extract.R": {
-      "checksum": "ba97cfc34af1a7473d83b0b808540fe7"
+      "checksum": "9b978e157ccef96d79d4b9496b12d0ba"
     },
     "R/mod_fetch_calc.R": {
-      "checksum": "0a2fe67181b63a46bf28173c5f7a5831"
+      "checksum": "c6e5932eec83ba36e62b4828a5404542"
     },
     "R/mod_input_tab.R": {
       "checksum": "69fb35977e2e55beaa7a40f2d55cc17f"
@@ -6678,10 +6678,10 @@
       "checksum": "cbe1c2754f2983a94662ee7fdd8b94b7"
     },
     "R/mod_model_apply.R": {
-      "checksum": "71bd404dcfba6eb7c0cee4075cf74d11"
+      "checksum": "6fe10c283c2a0a7aaa64f27da9736621"
     },
     "R/mod_results_viz.R": {
-      "checksum": "284345e8c93d81a6729ead96e77fa80c"
+      "checksum": "e3841863b3ffade8c15656e4eba32940"
     },
     "R/model.R": {
       "checksum": "b8f7f3790ddd21ca680ee53a13046b29"
@@ -6693,16 +6693,19 @@
       "checksum": "78b8b55ec964aa6d067673a246d5b6b2"
     },
     "R/read.R": {
-      "checksum": "f0526186e34d38820c0a83659ef21275"
+      "checksum": "2585c85b9e9b5258c0f77391916fc075"
     },
     "R/run_app.R": {
       "checksum": "651d827ce4595f2340166defad760a07"
+    },
+    "R/utils_basemap.R": {
+      "checksum": "0febf75846eb6cc225acc67184b4e4f0"
     },
     "R/utils_data_assembly.R": {
       "checksum": "539bef71df64150e30e1e4975e1f99ab"
     },
     "R/zzz.R": {
-      "checksum": "ad2e647270f01177cdcde00ccb02d9c5"
+      "checksum": "660ec0f85ce7814af0ffd449031e0bdb"
     },
     "README.md": {
       "checksum": "232314210837b7894c6072a358148eb5"
@@ -6747,649 +6750,13 @@
       "checksum": "49f67a64c4b196ff48f30cbe1c2d60d2"
     },
     "tests/testthat/test-read_sav_csv.R": {
-      "checksum": "4f3370b2acb00afe5ef61406e9d367d9"
+      "checksum": "82400fe9f99d828406716a638ee51a1d"
     },
     "tests/testthat/test-read_sav_pts.R": {
       "checksum": "91da42819d5edcc96b7f8be9962632ae"
     },
     "tests/testthat/test-read_sav.R": {
       "checksum": "7c6cf9217a733ce3e6a3ac4f762a5c7c"
-    },
-    "tmp/data.R": {
-      "checksum": "2fa8bcfbf3692199423d31de5f48d907"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000001.gdbindexes": {
-      "checksum": "85022decc419825cdcb0c2b8c0e1355e"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000001.gdbtable": {
-      "checksum": "56f7add6dc52292d2843b19a17d7f93c"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000001.gdbtablx": {
-      "checksum": "9fdefb9a98a7d0aea250b6dc26784451"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000001.TablesByName.atx": {
-      "checksum": "16da837fb16938a299eba6093b8c002c"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000002.gdbtable": {
-      "checksum": "3495bffca79ecf00acd87e64ea18c5d1"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000002.gdbtablx": {
-      "checksum": "32e61f56cbeb3c35b78c9606a1867b2d"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000003.gdbindexes": {
-      "checksum": "f56e7d854fe89ea7d26f7ee865d8f0a5"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000003.gdbtable": {
-      "checksum": "0dc44ea064f8e0745b0fbcb90fab9ba0"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000003.gdbtablx": {
-      "checksum": "2ee43c7749e5b9b2ebb71f4c05f0270f"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000004.CatItemsByPhysicalName.atx": {
-      "checksum": "4e678fad7194dd4db949db63c7b7246e"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000004.CatItemsByType.atx": {
-      "checksum": "0e7d2d802425dc8e3104efd2ebbf4e44"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000004.FDO_UUID.atx": {
-      "checksum": "6ab8ba1a55c509a7beffab4dc343d438"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000004.gdbindexes": {
-      "checksum": "6c458f4bf707ee637122876d926a20f5"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000004.gdbtable": {
-      "checksum": "1a5cfdaff71d9994bf018ccadc15602e"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000004.gdbtablx": {
-      "checksum": "4f06e269deefae90818691608915b14d"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000004.spx": {
-      "checksum": "f665769299f56b5758b87b44b8b5b4aa"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000005.CatItemTypesByName.atx": {
-      "checksum": "48259c4fd1a2a9a0193e78359e743d4f"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000005.CatItemTypesByParentTypeID.atx": {
-      "checksum": "1aa78862d3ace83bf9952bc8561a6449"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000005.CatItemTypesByUUID.atx": {
-      "checksum": "d4c9fa95efab5b48e5859733dc92fd16"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000005.gdbindexes": {
-      "checksum": "3585065e17c6580b63043f419a2a17cb"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000005.gdbtable": {
-      "checksum": "8de4b568801a1941b0a3075f72f19e86"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000005.gdbtablx": {
-      "checksum": "17cc9c74b346ef3b7f032469e87620fa"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000006.CatRelsByDestinationID.atx": {
-      "checksum": "ab1e40116fbff71bf9f9c39f97955a85"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000006.CatRelsByOriginID.atx": {
-      "checksum": "babc5b7652a841245ad3836c9b53eb78"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000006.CatRelsByType.atx": {
-      "checksum": "81887062f4361eed963629c65b233b69"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000006.FDO_UUID.atx": {
-      "checksum": "ae4a947b30fb910e540f866fee141ad5"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000006.gdbindexes": {
-      "checksum": "82cc637cc7e2ca712226d2493179ad0c"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000006.gdbtable": {
-      "checksum": "91bd7bcd2935c00224d033bebf4d03a1"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000006.gdbtablx": {
-      "checksum": "06daae6943408bf5c54a9279ecdfa61e"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000007.CatRelTypesByBackwardLabel.atx": {
-      "checksum": "8ebf07edef5f9f6dda119c6aeb0a205b"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000007.CatRelTypesByDestItemTypeID.atx": {
-      "checksum": "ffe975db91881d35dafd43a93a1aaa05"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000007.CatRelTypesByForwardLabel.atx": {
-      "checksum": "436b4cc44334a5e9e01e64b5bdef66ef"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000007.CatRelTypesByName.atx": {
-      "checksum": "050e59fa4a1f7e2833cc38e41f5c397a"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000007.CatRelTypesByOriginItemTypeID.atx": {
-      "checksum": "bf56cb68c2162069a1bab006c69b1808"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000007.CatRelTypesByUUID.atx": {
-      "checksum": "e95ed8ac01991b3cd62ae77a119f338c"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000007.gdbindexes": {
-      "checksum": "d7c9c452f4fafb3b4cd5036ef90a9031"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000007.gdbtable": {
-      "checksum": "06caff6530ec1306c31c9da74555877d"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000007.gdbtablx": {
-      "checksum": "1129fa77f2d4231ab73f5e5f9a9b77ae"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000009.gdbindexes": {
-      "checksum": "231094a3d2af59c75350c5a03ce4a5c4"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000009.gdbtable": {
-      "checksum": "831d8099a8a5f15dd7ce1467fbe4b4c5"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000009.gdbtablx": {
-      "checksum": "cfdc50e7a1cf494d1ce4f997be66d390"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a00000009.spx": {
-      "checksum": "47ee12476f0e5488768d7b898ecffc38"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000a.gdbindexes": {
-      "checksum": "ad6c0a616c100d2aba03843d889f0faf"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000a.gdbtable": {
-      "checksum": "d5b18b5c9780397ffbc892bec7f0bc2c"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000a.gdbtablx": {
-      "checksum": "929c1cb9a241f37b5975160675d0ac8b"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000b.gdbindexes": {
-      "checksum": "df1b2432c179d20ff5a10b448f7d5958"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000b.gdbtable": {
-      "checksum": "38406fbbbbb6050170948dfea86f2c2b"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000b.gdbtablx": {
-      "checksum": "5544dff0f427b0d12c51ba68aa151d78"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000c.band_index.atx": {
-      "checksum": "f41e13e02250aa2c7f4a6b0ef556817f"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000c.blk_key_index.atx": {
-      "checksum": "d00ca75c6d079c64a774a3e2432d4c26"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000c.col_index.atx": {
-      "checksum": "32191fb18e66452cbc8a132a1709339f"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000c.gdbindexes": {
-      "checksum": "d95c5d7879ac297baee89e1da5dac034"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000c.gdbtable": {
-      "checksum": "4df75af83cb621759cc58901074b178f"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000c.gdbtablx": {
-      "checksum": "6dde1732911e943465128fcbcf818749"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000c.row_index.atx": {
-      "checksum": "01cb2798ff3e8d32a35c1b8ccc7e2d56"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000d.gdbindexes": {
-      "checksum": "3786afaabb243fecca72f126a9923382"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000d.gdbtable": {
-      "checksum": "66eb6e8a4ec3893ae81167bd2b2e3d23"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/a0000000d.gdbtablx": {
-      "checksum": "c04cbe294136c8828e9176b7c8a63d1e"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/gdb": {
-      "checksum": "cbe23d9655fccd4311acdd6261c81bd8"
-    },
-    "tmp/LakeDEMs/bathymetry_erie.gdb/timestamps": {
-      "checksum": "d0e5ec53775944855581c0d42cc993df"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000001.gdbindexes": {
-      "checksum": "85022decc419825cdcb0c2b8c0e1355e"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000001.gdbtable": {
-      "checksum": "25f1561c1bf0c6cc2e5c2b6cae2ad711"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000001.gdbtablx": {
-      "checksum": "a6f1606abc747d3aa23fde60802c0ec4"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000001.TablesByName.atx": {
-      "checksum": "25ab9c8f9154bd605f736a5f7c0bb539"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000002.gdbtable": {
-      "checksum": "3495bffca79ecf00acd87e64ea18c5d1"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000002.gdbtablx": {
-      "checksum": "32e61f56cbeb3c35b78c9606a1867b2d"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000003.gdbindexes": {
-      "checksum": "f56e7d854fe89ea7d26f7ee865d8f0a5"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000003.gdbtable": {
-      "checksum": "0dc44ea064f8e0745b0fbcb90fab9ba0"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000003.gdbtablx": {
-      "checksum": "2ee43c7749e5b9b2ebb71f4c05f0270f"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000004.CatItemsByPhysicalName.atx": {
-      "checksum": "5ed37f12916774b537b8e1af5997bef0"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000004.CatItemsByType.atx": {
-      "checksum": "0e7d2d802425dc8e3104efd2ebbf4e44"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000004.FDO_UUID.atx": {
-      "checksum": "078494dcbae6e7c5b972f5f625e401aa"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000004.gdbindexes": {
-      "checksum": "6c458f4bf707ee637122876d926a20f5"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000004.gdbtable": {
-      "checksum": "d35134676a3a70506c4bc1cc443e5cd9"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000004.gdbtablx": {
-      "checksum": "4f06e269deefae90818691608915b14d"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000004.spx": {
-      "checksum": "4ea1b7ca2a716206b1b32eaa3d4cdcac"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000005.CatItemTypesByName.atx": {
-      "checksum": "f7f3d702f121ab695634449a2d8a4312"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000005.CatItemTypesByParentTypeID.atx": {
-      "checksum": "9c3e7d44b2212fd163c8fa1ca17eaab9"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000005.CatItemTypesByUUID.atx": {
-      "checksum": "e9ac030c0b6dec0c0999ba91c283fcf2"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000005.gdbindexes": {
-      "checksum": "3585065e17c6580b63043f419a2a17cb"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000005.gdbtable": {
-      "checksum": "1db3bf5c5f0fe86cb4f5c0a0ae0ccc47"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000005.gdbtablx": {
-      "checksum": "ed66ac02c01e2cf4626ba6bd05644bdd"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000006.CatRelsByDestinationID.atx": {
-      "checksum": "2bd1b2464956b85db017627ffa5ce5ed"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000006.CatRelsByOriginID.atx": {
-      "checksum": "be67f7537b0879c913d88a0d47a0643f"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000006.CatRelsByType.atx": {
-      "checksum": "81887062f4361eed963629c65b233b69"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000006.FDO_UUID.atx": {
-      "checksum": "1e7128b3a969d64e7b9b6b1e07aea275"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000006.gdbindexes": {
-      "checksum": "82cc637cc7e2ca712226d2493179ad0c"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000006.gdbtable": {
-      "checksum": "267633f82b213a7e2a4d06d0cb9522b9"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000006.gdbtablx": {
-      "checksum": "06daae6943408bf5c54a9279ecdfa61e"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000007.CatRelTypesByBackwardLabel.atx": {
-      "checksum": "0c6176cb1c0511815400a91e03e1f8e3"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000007.CatRelTypesByDestItemTypeID.atx": {
-      "checksum": "a104f45ac13a972e57b0ac2d9ef24bd7"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000007.CatRelTypesByForwardLabel.atx": {
-      "checksum": "e3638c096c36e1d5ca3d635abfe49fc4"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000007.CatRelTypesByName.atx": {
-      "checksum": "f25471ad365a344874c23e47e28b1ec5"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000007.CatRelTypesByOriginItemTypeID.atx": {
-      "checksum": "8c807076b78d4469966e54a883e22564"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000007.CatRelTypesByUUID.atx": {
-      "checksum": "9354625d3f139d0529eac6ee393077b0"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000007.gdbindexes": {
-      "checksum": "d7c9c452f4fafb3b4cd5036ef90a9031"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000007.gdbtable": {
-      "checksum": "a1bbb66dca3ef03da05ef4c68f9c6c11"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000007.gdbtablx": {
-      "checksum": "920aa7260c6ec2e862e80756d5fbfbc1"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000009.gdbindexes": {
-      "checksum": "231094a3d2af59c75350c5a03ce4a5c4"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000009.gdbtable": {
-      "checksum": "27ba4a064f12be0214af4ada10fe9794"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000009.gdbtablx": {
-      "checksum": "cfdc50e7a1cf494d1ce4f997be66d390"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a00000009.spx": {
-      "checksum": "47ee12476f0e5488768d7b898ecffc38"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000a.gdbindexes": {
-      "checksum": "ad6c0a616c100d2aba03843d889f0faf"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000a.gdbtable": {
-      "checksum": "d5b18b5c9780397ffbc892bec7f0bc2c"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000a.gdbtablx": {
-      "checksum": "929c1cb9a241f37b5975160675d0ac8b"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000b.gdbindexes": {
-      "checksum": "df1b2432c179d20ff5a10b448f7d5958"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000b.gdbtable": {
-      "checksum": "2866fe3bead0e4064a328b0f174a8c69"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000b.gdbtablx": {
-      "checksum": "5544dff0f427b0d12c51ba68aa151d78"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000c.band_index.atx": {
-      "checksum": "155c7f3b039a4eed402b9bd7a69e1125"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000c.blk_key_index.atx": {
-      "checksum": "92753dc745157f5f4ec5853d05002543"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000c.col_index.atx": {
-      "checksum": "42d5c339e3b819085de5eb07abbae699"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000c.gdbindexes": {
-      "checksum": "d95c5d7879ac297baee89e1da5dac034"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000c.gdbtable": {
-      "checksum": "e424e1832dbd34a3882eb40d932d8bfe"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000c.gdbtablx": {
-      "checksum": "fdbf108830180ed9aa133e2b46ead965"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000c.row_index.atx": {
-      "checksum": "eeb135845b1b89ddec3df70a1db04d11"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000d.gdbindexes": {
-      "checksum": "3786afaabb243fecca72f126a9923382"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000d.gdbtable": {
-      "checksum": "d28b38e792d5e507ab7c09d237935620"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/a0000000d.gdbtablx": {
-      "checksum": "c04cbe294136c8828e9176b7c8a63d1e"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/gdb": {
-      "checksum": "cbe23d9655fccd4311acdd6261c81bd8"
-    },
-    "tmp/LakeDEMs/bathymetry_huron.gdb/timestamps": {
-      "checksum": "d0e5ec53775944855581c0d42cc993df"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000001.gdbindexes": {
-      "checksum": "85022decc419825cdcb0c2b8c0e1355e"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000001.gdbtable": {
-      "checksum": "41bfaf08b377a49c34e316b6821d9638"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000001.gdbtablx": {
-      "checksum": "1160cf725223514f83d4a4ae49e79528"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000001.TablesByName.atx": {
-      "checksum": "13c3141a7a0c5637a6be49cb84ef8d30"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000002.gdbtable": {
-      "checksum": "3495bffca79ecf00acd87e64ea18c5d1"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000002.gdbtablx": {
-      "checksum": "32e61f56cbeb3c35b78c9606a1867b2d"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000003.gdbindexes": {
-      "checksum": "f56e7d854fe89ea7d26f7ee865d8f0a5"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000003.gdbtable": {
-      "checksum": "0dc44ea064f8e0745b0fbcb90fab9ba0"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000003.gdbtablx": {
-      "checksum": "2ee43c7749e5b9b2ebb71f4c05f0270f"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000004.CatItemsByPhysicalName.atx": {
-      "checksum": "be3922fd822b26a95afb98863d561849"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000004.CatItemsByType.atx": {
-      "checksum": "0e7d2d802425dc8e3104efd2ebbf4e44"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000004.FDO_UUID.atx": {
-      "checksum": "de477d9908c6767c02da26008c32be01"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000004.gdbindexes": {
-      "checksum": "6c458f4bf707ee637122876d926a20f5"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000004.gdbtable": {
-      "checksum": "71cb2057efd749693485d7a96c7ed59f"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000004.gdbtablx": {
-      "checksum": "4f06e269deefae90818691608915b14d"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000004.spx": {
-      "checksum": "724ff6d728efbbe59faff89738737690"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000005.CatItemTypesByName.atx": {
-      "checksum": "a2e0197c761870dada05abf330d55111"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000005.CatItemTypesByParentTypeID.atx": {
-      "checksum": "c47441491daba41fbc75e7b05b7c6b98"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000005.CatItemTypesByUUID.atx": {
-      "checksum": "6afef05f5d8ba7447666962785b80e01"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000005.gdbindexes": {
-      "checksum": "3585065e17c6580b63043f419a2a17cb"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000005.gdbtable": {
-      "checksum": "2a5c54107450387e5cb604e0c0a26639"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000005.gdbtablx": {
-      "checksum": "9522c4e338f5136e894cdb2e4d7029cb"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000006.CatRelsByDestinationID.atx": {
-      "checksum": "be6f09db31bd0f06c57f237f5ecde836"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000006.CatRelsByOriginID.atx": {
-      "checksum": "58bb9770e3428b08053305639bcdd84d"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000006.CatRelsByType.atx": {
-      "checksum": "81887062f4361eed963629c65b233b69"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000006.FDO_UUID.atx": {
-      "checksum": "0a6b34ec6f1262bf6b70f1632aceb5ec"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000006.gdbindexes": {
-      "checksum": "82cc637cc7e2ca712226d2493179ad0c"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000006.gdbtable": {
-      "checksum": "6a453c38ac481b3c399e7db08e63583b"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000006.gdbtablx": {
-      "checksum": "06daae6943408bf5c54a9279ecdfa61e"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000007.CatRelTypesByBackwardLabel.atx": {
-      "checksum": "b3f8a3c6e2f7182c09ad2a0e5aaac992"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000007.CatRelTypesByDestItemTypeID.atx": {
-      "checksum": "e733d3085ec14e8e08cd056b9b1645cd"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000007.CatRelTypesByForwardLabel.atx": {
-      "checksum": "c9198113829399bf5ecf9158330bf98c"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000007.CatRelTypesByName.atx": {
-      "checksum": "2826dcb6bbc327ffb55f24cfa39debe9"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000007.CatRelTypesByOriginItemTypeID.atx": {
-      "checksum": "52a96ea7eb281be5cc46a9bb2a23cf33"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000007.CatRelTypesByUUID.atx": {
-      "checksum": "e5f32cd176398df0f9347c853e5ea3d5"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000007.gdbindexes": {
-      "checksum": "d7c9c452f4fafb3b4cd5036ef90a9031"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000007.gdbtable": {
-      "checksum": "11581789c5496210f165fcf44f797bc2"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000007.gdbtablx": {
-      "checksum": "f001a15f585322eb7ad3fc2ffc1726b1"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000009.gdbindexes": {
-      "checksum": "231094a3d2af59c75350c5a03ce4a5c4"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000009.gdbtable": {
-      "checksum": "48504ad3f231a3838ec84c0e5dcdd4c4"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000009.gdbtablx": {
-      "checksum": "cfdc50e7a1cf494d1ce4f997be66d390"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a00000009.spx": {
-      "checksum": "47ee12476f0e5488768d7b898ecffc38"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000a.gdbindexes": {
-      "checksum": "ad6c0a616c100d2aba03843d889f0faf"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000a.gdbtable": {
-      "checksum": "d5b18b5c9780397ffbc892bec7f0bc2c"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000a.gdbtablx": {
-      "checksum": "929c1cb9a241f37b5975160675d0ac8b"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000b.gdbindexes": {
-      "checksum": "df1b2432c179d20ff5a10b448f7d5958"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000b.gdbtable": {
-      "checksum": "6ee5d3f83a2914625752c9b1f405613c"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000b.gdbtablx": {
-      "checksum": "5544dff0f427b0d12c51ba68aa151d78"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000c.band_index.atx": {
-      "checksum": "16dbc17c03190dc98991cf43296eadda"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000c.blk_key_index.atx": {
-      "checksum": "677f88571ca7e49792cb28a5426a27ae"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000c.col_index.atx": {
-      "checksum": "38db48b6d55db29609e2406e8db1a406"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000c.gdbindexes": {
-      "checksum": "d95c5d7879ac297baee89e1da5dac034"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000c.gdbtable": {
-      "checksum": "f5c9338f2d6ea9b905afc678f19943f4"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000c.gdbtablx": {
-      "checksum": "f9ee5a18395254b0eb986e42c2968984"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000c.row_index.atx": {
-      "checksum": "e5e456228c1bb2b0e520d2ee9ef44633"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000d.gdbindexes": {
-      "checksum": "3786afaabb243fecca72f126a9923382"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000d.gdbtable": {
-      "checksum": "b782380e844871000ec18cdac4a53afc"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/a0000000d.gdbtablx": {
-      "checksum": "c04cbe294136c8828e9176b7c8a63d1e"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/gdb": {
-      "checksum": "cbe23d9655fccd4311acdd6261c81bd8"
-    },
-    "tmp/LakeDEMs/bathymetry_ontario.gdb/timestamps": {
-      "checksum": "d0e5ec53775944855581c0d42cc993df"
-    },
-    "tmp/LakePolygons/LKErie/LkErie_Land_fromGLAF_Water_WGS_Feb2020.cpg": {
-      "checksum": "ae3b3df9970b49b6523e608759bc957d"
-    },
-    "tmp/LakePolygons/LKErie/LkErie_Land_fromGLAF_Water_WGS_Feb2020.dbf": {
-      "checksum": "ff4b897fa920aee665f878cffca878ae"
-    },
-    "tmp/LakePolygons/LKErie/LkErie_Land_fromGLAF_Water_WGS_Feb2020.prj": {
-      "checksum": "c742bee3d4edfc2948a2ad08de1790a5"
-    },
-    "tmp/LakePolygons/LKErie/LkErie_Land_fromGLAF_Water_WGS_Feb2020.sbn": {
-      "checksum": "20fe02b272af638756eedb2dcfd6a468"
-    },
-    "tmp/LakePolygons/LKErie/LkErie_Land_fromGLAF_Water_WGS_Feb2020.sbx": {
-      "checksum": "9d6a7f79f6f589c6c409bc2055bf135f"
-    },
-    "tmp/LakePolygons/LKErie/LkErie_Land_fromGLAF_Water_WGS_Feb2020.shp": {
-      "checksum": "397757dbcbfbfc253f31fdac72f8a2b1"
-    },
-    "tmp/LakePolygons/LKErie/LkErie_Land_fromGLAF_Water_WGS_Feb2020.shp.xml": {
-      "checksum": "f1b818a42bea0568922cb8672e2652e5"
-    },
-    "tmp/LakePolygons/LKErie/LkErie_Land_fromGLAF_Water_WGS_Feb2020.shx": {
-      "checksum": "7d6f87a4782f097e2f26405c70c8f4ee"
-    },
-    "tmp/LakePolygons/LKHuron/LKHuron_Land_fromGLAF_Water_WGS_Feb2020.cpg": {
-      "checksum": "ae3b3df9970b49b6523e608759bc957d"
-    },
-    "tmp/LakePolygons/LKHuron/LKHuron_Land_fromGLAF_Water_WGS_Feb2020.dbf": {
-      "checksum": "00ab232107249ecc303e8a66cb8a58d7"
-    },
-    "tmp/LakePolygons/LKHuron/LKHuron_Land_fromGLAF_Water_WGS_Feb2020.prj": {
-      "checksum": "c742bee3d4edfc2948a2ad08de1790a5"
-    },
-    "tmp/LakePolygons/LKHuron/LKHuron_Land_fromGLAF_Water_WGS_Feb2020.sbn": {
-      "checksum": "e5f5bc3fc0954202c46d8e30085140ba"
-    },
-    "tmp/LakePolygons/LKHuron/LKHuron_Land_fromGLAF_Water_WGS_Feb2020.sbx": {
-      "checksum": "8530f3e5aea6766c52ff29932618fc07"
-    },
-    "tmp/LakePolygons/LKHuron/LKHuron_Land_fromGLAF_Water_WGS_Feb2020.shp": {
-      "checksum": "e2e5eb192c3bf45ecaba53b4ea997e28"
-    },
-    "tmp/LakePolygons/LKHuron/LKHuron_Land_fromGLAF_Water_WGS_Feb2020.shp.xml": {
-      "checksum": "7945aa0c05f5546533fa529b6ce8b2c6"
-    },
-    "tmp/LakePolygons/LKHuron/LKHuron_Land_fromGLAF_Water_WGS_Feb2020.shx": {
-      "checksum": "4934818f58640cc835860f1726f3d4e9"
-    },
-    "tmp/LakePolygons/LKO/LKO_Land_fromGLAF_Water_WGS_Feb2020.cpg": {
-      "checksum": "ae3b3df9970b49b6523e608759bc957d"
-    },
-    "tmp/LakePolygons/LKO/LKO_Land_fromGLAF_Water_WGS_Feb2020.dbf": {
-      "checksum": "9fa0270579c3fa44119bbca401805a18"
-    },
-    "tmp/LakePolygons/LKO/LKO_Land_fromGLAF_Water_WGS_Feb2020.prj": {
-      "checksum": "c742bee3d4edfc2948a2ad08de1790a5"
-    },
-    "tmp/LakePolygons/LKO/LKO_Land_fromGLAF_Water_WGS_Feb2020.sbn": {
-      "checksum": "21744bb3f21cf6d3e23e6c19ed2461ef"
-    },
-    "tmp/LakePolygons/LKO/LKO_Land_fromGLAF_Water_WGS_Feb2020.sbx": {
-      "checksum": "d7d8711a5adbf0b5be33ca9814f435ae"
-    },
-    "tmp/LakePolygons/LKO/LKO_Land_fromGLAF_Water_WGS_Feb2020.shp": {
-      "checksum": "64262bff69b26b4e6d3295bd996b5d98"
-    },
-    "tmp/LakePolygons/LKO/LKO_Land_fromGLAF_Water_WGS_Feb2020.shp.xml": {
-      "checksum": "83abaada6711f09ccfc0444aa7e4af57"
-    },
-    "tmp/LakePolygons/LKO/LKO_Land_fromGLAF_Water_WGS_Feb2020.shx": {
-      "checksum": "7812a7f14a37a7eaa6623062b1bd6544"
-    },
-    "tmp/models/SAV_Cover_Depth_Feb2025.RData": {
-      "checksum": "03eaa60c9af3c6bfbaa116c9f1a6e693"
-    },
-    "tmp/models/SAV_Cover_DepthFetch_Feb2025.RData": {
-      "checksum": "2a780bcce99550fda739139e014bb493"
-    },
-    "tmp/models/SAV_Cover_Fetch_Feb2025.RData": {
-      "checksum": "2f8dff58231897f348af4df8f3af406e"
-    },
-    "tmp/models/SAV_PA_Depth_Feb2025.RData": {
-      "checksum": "75bbf809df563ce202783e3200c839ac"
-    },
-    "tmp/models/SAV_PA_DepthFetch_Feb2025.RData": {
-      "checksum": "dc297b5978b303dd6b9a672e04599a3c"
-    },
-    "tmp/models/SAV_PA_Fetch_Feb2025.RData": {
-      "checksum": "43f1d027e619835284af3c55da96cf66"
-    },
-    "tmp/tmp.md": {
-      "checksum": "80d0931052053ef05d67bc412d6efd7a"
     },
     "vignettes/get_started.Rmd": {
       "checksum": "c017265458e5a7d6f952eb350cdadedc"

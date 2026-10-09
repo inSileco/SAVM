@@ -1,4 +1,4 @@
-# SAVM (devel)
+# SAVM 0.1.1
 
 * Notify users when predictor values are all NAs.
 * Drop empty columns from user input data. 
