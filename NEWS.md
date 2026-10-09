@@ -1,9 +1,12 @@
+# SAVM (devel)
+
+* Notify users when predictor values are all NAs.
+
 # SAVM 0.1.0
 
 * Fix problematic conversion to one-column matrix.
 * Lint code. 
-* CI update.
-* Manifest update.
+* CI update + manifest update.
 
 # SAVM 0.0.2
 

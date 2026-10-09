@@ -177,6 +177,19 @@ mod_depth_extract_server <- function(id, app_data, app_session) {
     })
     outputOptions(output, "data_available", suspendWhenHidden = FALSE)
 
+    # Update button label based on mode
+    observeEvent(input$use_constant_depth, {
+      updateActionButton(
+        session,
+        "extract_depth",
+        label = if (isTRUE(input$use_constant_depth)) {
+          "Set Depth"
+        } else {
+          "Extract Depth"
+        }
+      )
+    })
+
     # Extract depth values
     observeEvent(input$extract_depth, {
       req(app_data$original_data)
