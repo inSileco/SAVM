@@ -13,7 +13,17 @@ app_ui <- function(request) {
     ),
     # Your application UI logic
     bs4Dash::dashboardPage(
-      bs4Dash::dashboardHeader(title = "SAVM"),
+      bs4Dash::dashboardHeader(
+        title = bs4Dash::dashboardBrand(
+          title = tagList(
+            "SAVM",
+            tags$small(
+              paste0("v", utils::packageVersion("SAVM")),
+              class = "text-muted ml-1"
+            )
+          )
+        )
+      ),
       bs4Dash::dashboardSidebar(
         bs4Dash::sidebarMenu(
           id = "sidebar",

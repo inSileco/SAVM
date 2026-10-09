@@ -1,12 +1,16 @@
 # SAVM (devel)
 
 * Notify users when predictor values are all NAs.
+* Drop empty columns from user input data. 
+* Add SAVM version in the top left of the navbar.  
+
 
 # SAVM 0.1.0
 
 * Fix problematic conversion to one-column matrix.
 * Lint code. 
 * CI update + manifest update.
+
 
 # SAVM 0.0.2
 
