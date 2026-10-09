@@ -161,7 +161,8 @@ read_sav <- function(
 #' read_sav_csv(temp_csv, crs = 32614, crs_input = 4326)
 read_sav_csv <- function(file_path, crs = 32617, crs_input = 4326, ...) {
   # Read CSV
-  df <- utils::read.csv(file_path, ...)
+  df <- utils::read.csv(file_path, ...) |>
+    drop_empty_columns()
 
   # Validate required columns
   required_cols <- c("longitude", "latitude")
@@ -245,7 +246,8 @@ read_sav_pts <- function(file_path, crs = 32617) {
   # Read spatial file
   sf_obj <- sf::st_read(file_path, quiet = TRUE) |>
     sf::st_make_valid() |>
-    sf::st_zm()
+    sf::st_zm() |>
+    drop_empty_columns()
 
   # Ensure it's a point geometry
   if (!all(sf::st_geometry_type(sf_obj) %in% c("POINT", "MULTIPOINT"))) {
@@ -344,4 +346,29 @@ read_sav_aoi <- function(file_path, spacing = 500, crs = 32617) {
     "Grid of {nrow(grid)} points successfully generated from AOI."
   )
   return(list(polygon = polygon_sf, points = grid))
+}
+
+
+# Drop columns where every value is NA or an empty string (the geometry
+# column of sf objects is never dropped)
+drop_empty_columns <- function(df) {
+  attr_cols <- setdiff(names(df), attr(df, "sf_column"))
+  is_empty <- vapply(
+    attr_cols,
+    function(col) {
+      x <- df[[col]]
+      all(is.na(x) | (is.character(x) & trimws(x) == ""))
+    },
+    logical(1)
+  )
+  empty_cols <- attr_cols[is_empty]
+
+  if (length(empty_cols) > 0) {
+    sav_msg_info(
+      "Dropped empty columns: {paste(empty_cols, collapse = ', ')}."
+    )
+    df <- df[, setdiff(names(df), empty_cols), drop = FALSE]
+  }
+
+  df
 }

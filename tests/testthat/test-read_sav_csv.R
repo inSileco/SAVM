@@ -154,5 +154,22 @@ withr::with_options(
       result <- read_sav_csv(temp_csv, crs = 26917, crs_input = 4326)
       expect_true(sf::st_crs(result)$epsg == 26917)
     })
+
+    test_that("read_sav_csv() drops empty columns", {
+      temp_csv <- tempfile(fileext = ".csv")
+      writeLines(
+        c(
+          "longitude,latitude,depth_m,secchi,",
+          "-82.5,42.5,,1.2,",
+          "-83.0,42.8,,2.3,"
+        ),
+        temp_csv
+      )
+
+      result <- read_sav_csv(temp_csv, crs = 32617)
+      expect_false("depth_m" %in% colnames(result))
+      expect_true("secchi" %in% colnames(result))
+      expect_equal(nrow(result), 2)
+    })
   }
 )
