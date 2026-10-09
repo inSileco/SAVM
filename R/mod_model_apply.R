@@ -500,6 +500,18 @@ mod_model_apply_server <- function(id, app_data, app_session) {
       shinycssloaders::hidePageSpinner()
 
       if (!is.null(result)) {
+        pred_cols <- intersect(c("pa_pred", "cover_pred"), names(result))
+        if (all(is.na(sf::st_drop_geometry(result)[pred_cols]))) {
+          cli::cli_alert_warning(
+            "All values are NA, no predictions could be computed."
+          )
+          showNotification(
+            "No predictions could be computed (all values are NA). Check that points fall inside the study area and that depth and fetch are available.",
+            type = "warning",
+            duration = 7
+          )
+        }
+
         # Store model results separately
         values$model_results <- result
         values$model_complete <- TRUE
@@ -654,10 +666,12 @@ mod_model_apply_server <- function(id, app_data, app_session) {
         pts$point_id <- seq_len(nrow(pts))
       }
 
-      # Choose color variable (prefer cover, then pa)
-      color_var <- if ("cover_pred" %in% names(pts)) {
+      # Choose color variable (prefer cover, then pa); skip all-NA predictions
+      # (e.g. when no fetch could be computed) as colorNumeric needs a range
+      has_pred <- function(var) var %in% names(pts) && any(!is.na(pts[[var]]))
+      color_var <- if (has_pred("cover_pred")) {
         "cover_pred"
-      } else if ("pa_pred" %in% names(pts)) {
+      } else if (has_pred("pa_pred")) {
         "pa_pred"
       } else {
         NULL
