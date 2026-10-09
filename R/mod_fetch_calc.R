@@ -252,7 +252,8 @@ mod_fetch_calc_server <- function(id, app_data, app_session) {
       )
       polygon_choices <- stats::setNames(
         polygon_files,
-        tools::file_path_sans_ext(polygon_files)
+        tools::file_path_sans_ext(polygon_files) |>
+          snake_to_title()
       )
 
       updateSelectInput(

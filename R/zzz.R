@@ -120,3 +120,12 @@ sav_stop_if_not <- function(cond, ...) {
     rlang::abort(...)
   }
 }
+
+
+#---- string helpers
+
+# Convert snake_case to Title Case, e.g. "depth_m" -> "Depth M"
+snake_to_title <- function(x) {
+  x <- gsub("_+", " ", trimws(x))
+  gsub("(^|\\s)(\\w)", "\\1\\U\\2", x, perl = TRUE)
+}
